@@ -1,0 +1,202 @@
+@media only screen and (min-width: 601px){
+    /* CSS for database.html */
+    
+    #filterColumns {
+        display: flex;
+        font-family: "futura";
+        color: #2da633;
+        margin-top: 1%;
+        align-items: center;
+        justify-content: center;
+        font-size: 0.80vw;
+    }
+    
+    .filterTypes{
+        margin-left: 2%;
+        margin-top: auto;
+        margin-bottom: auto;
+    }
+    
+    .filterColumn{
+        flex-basis: 10%;
+        display: flex;
+        flex-direction: column;
+        margin-left: 2%;
+        margin-top: auto;
+        margin-bottom: auto;
+    }
+    
+    .filterColumn button{
+        margin: 6px;
+        border-radius: 8px;
+        border-color: #2da633;
+    }
+    
+    .filterBtn{
+        width: 100%;
+    }
+
+    .secondColumn{
+        display: flex;
+        width: 33%;
+        align-items: center;
+        justify-content: center;
+    }
+    
+    .secondcolumnRow{
+        display: flex;
+        flex-direction: column;
+        flex: 1;
+    }
+    
+    .secondcolumnRow p {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    
+    #accessionSearch {
+        margin-left: 3%;
+        margin-right: 2%;
+        margin-top: auto;
+        margin-bottom: auto;
+    }
+
+    #accession {
+        border: 1px solid #2da633;
+        border-radius: 8px;
+        width: 100%;
+        height: 25px;
+        text-align: center;
+    }
+
+    #researcherSearch {
+        margin-left: 5%;
+        margin-top: auto;
+        margin-bottom: auto;
+    }
+
+    #researcher {
+        border: 1px solid #2da633;
+        border-radius: 10px;
+        width: 100%;
+        height: 25px;
+        text-align: center;
+    }
+
+    #greenBar {
+        margin-bottom: auto;
+        width: 70%;
+        height: 100%;
+    }
+
+    #greenBarContainer {
+        margin-left: 3%;
+        margin-right: 3%;
+
+    }
+
+    .thirdColumnRow{
+        display: flex;
+        flex-direction: column;
+    }
+    
+    .thirdColumn {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+    }
+    
+    .thirdColumn p{
+        padding: 5px;
+    }
+    
+    .thirdColumn div{
+        width: 10%;
+        padding: 10px;
+    }
+    
+    .thirdColInput{
+        border: 1px solid #2da633;
+        border-radius: 8px;
+        width: 100%;
+        height: 25px;
+        margin-left: 2%;
+        margin-right: auto;
+    }
+    
+    #rate{
+        margin-left: 17%;
+    }
+    
+    #angle{
+        margin-left: 10%;
+    }
+    
+    hr{
+        width: 95%;
+        height: 5px;
+        background: linear-gradient(to right, rgb(53,181,147) , rgb(161,210,68));
+        border: none;
+    }
+    
+    .header{
+        height: 30px;
+        font-family: "futura";
+        border-color: rgb(161,210,68);
+        text-align: center;
+        position: relative;
+        bottom: 0px;
+    }
+    
+    .headerText {
+        padding-top: 2%;
+        color: rgb(161,210,68);
+        font-weight: bold;
+        border-bottom-style: solid;
+        border-bottom-color: rgb(161,210,68);
+        border-bottom-width: thin;
+    }
+    
+    .vertical-menu{
+        width: 250px;
+        height: 400px;
+        border-width: thin;
+        border-style: solid;
+        border-radius: 10px;
+        border-color: rgb(161,210,68);
+        margin-left: 4%;
+        margin-top: 2%;
+    }
+    
+    .content {
+        position: absolute;
+        width: 250px;
+        height: 300px;
+        overflow-y: scroll;
+        font-family: "futura";
+    }
+    
+    .vertical-menu a{
+        background-color: white;
+        display: block;
+        padding: 12px;
+        height: 50px;
+        text-decoration: none;
+        border-bottom-width: thin;
+        border-bottom-style: solid;
+        border-bottom-color: rgb(161,210,68);
+    }
+    
+    .vertical-menu a:hover{
+        background-color: #ccc;
+    }
+    
+    .vertical-menu a.active{
+        background-color: #4CAF50;
+        color: white;
+    }
+
+}
+

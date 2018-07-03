@@ -1,0 +1,110 @@
+@media only screen and (min-width: 601px){
+    
+/* CSS for navbar */
+    
+    .menu-wrap {
+        display: none;
+    }
+    
+    body {
+        margin: 0px;
+    }
+
+    .navBar {
+        display: flex;
+        background: linear-gradient(to right, rgb(53,181,147) , rgb(161,210,68));
+        width: 100vw;
+    }
+
+    .navBar a {
+        display: block;
+        color: white;
+        text-align: center;
+        padding-left: 1%;;
+        text-decoration: none;
+        font-family: "futura";
+    }
+
+    .navBar a:hover {
+        text-shadow: 2px 2px 5px #9dff2e;
+    }
+
+    .active {
+        text-shadow: 2px 2px 5px #9dff2e; 
+    }
+
+    #homeBtn {
+        padding: 20px;
+        width: 15vw;
+    }
+
+    #homeLogoBtn {
+        margin: 0 auto;
+        width: 100%;
+        font-size: 150%;
+    }
+
+    #notHomeBtns {
+        display: flex;
+        flex-direction: row;
+        width: 55vw;
+        margin: auto;
+    }
+
+    .navItem {
+        width: 100%;
+        margin-top: auto;
+        margin-bottom: auto;
+    }
+
+    .line {
+        color: white;
+        width: 1%;
+        margin-top: auto;
+        margin-bottom: auto;
+    }
+    
+    #firstLine{
+        padding-left: 3%;
+    }
+    
+    #plantLiteracy {
+        padding-left: 1.5%;
+        padding-right: 1.5%;
+    }
+
+    #userBtns {
+        width: 17vw;
+        display: flex;
+        margin-top: auto;
+        margin-bottom: auto;
+    }
+
+    #contactBtn{
+        width: 40%;
+        height: 100%;
+    }
+
+    #contact {
+        width: 100%;
+        margin-left: 10%;
+    }
+
+    #accountBtn {
+        width: 40%;
+        height: 100%;
+    }
+
+    #account {
+        width: 100%;
+        margin-left: 20%;
+    }
+
+    #userBtns button {
+        background-color: transparent;
+        border-radius: 8px;
+        border-color: white;
+        color: white;
+        font-size: 70%;
+    }
+}

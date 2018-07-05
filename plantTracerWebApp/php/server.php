@@ -1,4 +1,5 @@
 <?php
+    session_start();
 
     $username = "";
     $password_unsafe = "";
@@ -8,22 +9,8 @@
 
     if(isset($_POST['register'])) {
         $username = mysql_real_escape_string($_POST['uname']);
-        $password_unsafe = mysql_real_escape_string($_POST['psw']);
+        $password_unsafe = mysql_real_escape_string($_POST['psw_1']);
         $confirm = mysql_real_escape_string($_POST['pswconfirm']);
-        
-        //Ensure that form fields are filled properly
-        /*
-        if(empty ($username)){
-            array_push($errors, "Username is required");
-        }
-        if(empty ($password_unsafe)){
-            array_push($errors, "Password is required");
-        }
-        
-        if(empty ($confirm)){
-            array_push($errors, "Password confirmation is required");
-        }
-        */
         
         if($password_unsafe != $confirm){
             array_push($errors, "The two passwords do not match");
@@ -34,7 +21,37 @@
             $password = md5($password_unsafe);
             $sql = "INSERT INTO plant_tracing (user, researcher) VALUES ('$username', '$password')";
             mysqli_query($db, $sql);
+            
+            $_SESSION['username'] = $username;
+            $_SESSION['success'] = "You are now logged in";
+            header('location: database.html'); //Redirect to database page upon successful registration
         }
+    }
+    //log user in from login page
+    if(isset($_POST['login'])){
+        $username = mysql_real_escape_string($_POST['uname']);
+        $password = mysql_real_escape_string($_POST['psw']);
+        
+        $password = md5($password);
+        $query = "SELECT * FROM plant_tracing WHERE user = '$username' AND password = '$password'";
+        $result = mysqli_query($db,$query);
+        if(mysqli_num_rows($result) == 1){
+            //log user in
+            $_SESSION['username'] = $username;
+            $_SESSION['success'] = "You are now logged in";
+            header('location: database.html'); //Redirect to database page upon successful login
+        }
+        else{
+            array_push($errors, "Wrong username or password");
+        }
+    }
+
+
+    //logout
+    if (isset($_GET['logout'])) {
+        session_destroy();
+        unset($_SESSION['username']);
+        header('location: index.php');
     }
 ?>
 

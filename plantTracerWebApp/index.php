@@ -1,4 +1,4 @@
-<? /*php include('server.php'); */?>
+<?/*php include('php/server.php'); */?>
 
 <!DOCTYPE html>
 
@@ -74,7 +74,7 @@
       <label for="psw"><b>Password</b></label>
       <input type="password" placeholder="Enter Password" name="psw" required>
         
-      <button type="submit" class="modalSubmit">Login</button>
+      <button type="submit" name="login" class="modalSubmit">Login</button>
     </div>
 
     <div class="container psw" style="background-color:#f1f1f1">
@@ -103,10 +103,10 @@ New User Modal
             </p>
 
           <label for="uname"><b>Username</b></label>
-          <input type="text" placeholder="Enter Username" name="uname" required>
+          <input type="text" placeholder="Enter Username" name="uname" value="<?php echo $username; ?>" required>
 
           <label for="psw"><b>Password</b></label>
-          <input type="password" placeholder="Enter Password" name="psw" required>
+          <input type="password" placeholder="Enter Password" name="psw_1" required>
 
           <label for="psw"><b>Confirm Password</b></label>
           <input type="password" placeholder="Confirm Password" name="pswconfirm" required>

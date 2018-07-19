@@ -54,11 +54,12 @@
         <div id="contactBtn"><button id="contact" type="button"><a href="mailto:brennerbotany@gmail.com?" target="_top">Contact</a></button></div>
         <div id="accountBtn"><button id="account" type="button">My Account</button></div>
     </div>
-    </div>
+</div>
     
 <div id="login" class="modal">
   
-  <form class="modal-content animate" action="/action_page.php">
+  <form class="modal-content animate" method="POST" action="/">
+    {{ csrf_field() }}
     <div class="imgcontainer">
       <span onclick="document.getElementById('login').style.display='none'" class="close" title="Close Modal">&times;</span>
       <img src="img/leaf.png" alt="Avatar" class="avatar">
@@ -66,10 +67,10 @@
 
     <div class="container">
       <label for="uname"><b>Email</b></label>
-      <input type="text" placeholder="Enter Username" name="uname" required>
+      <input type="text" placeholder="Email" name="email" required>
 
       <label for="psw"><b>Password</b></label>
-      <input type="password" placeholder="Enter Password" name="psw" required>
+      <input type="password" placeholder="Password" name="password" required>
         
       <button type="submit" name="login" class="modalSubmit">Login</button>
     </div>
@@ -86,7 +87,8 @@ New User Modal
 
 <div id="newUser" class="modal">
   
-  <form class="modal-content-newUser animate" method="post" action="index.php">
+  <form class="modal-content-newUser animate" method="POST" action="/users">
+    {{ csrf_field() }}
       <?/*php include('php/errors.php'); */?>
     <div class="imgcontainer-newUser">
       <span onclick="document.getElementById('newUser').style.display='none'" class="close-newUser" title="Close Modal">&times;</span>
@@ -99,14 +101,14 @@ New User Modal
                 <strong>2)</strong> Use a valid email address to upload the data. Use this email address in order to make an account on this page. <br>
             </p>
 
-          <label for="uname"><b>Username</b></label>
-          <input type="text" placeholder="Enter Username" name="uname" required>
+          <label for="uname"><b>Email</b></label>
+          <input type="text" placeholder="Email" name="email">
 
           <label for="psw"><b>Password</b></label>
-          <input type="password" placeholder="Enter Password" name="psw_1" required>
+          <input type="password" placeholder="Enter Password" name="password">
 
           <label for="psw"><b>Confirm Password</b></label>
-          <input type="password" placeholder="Confirm Password" name="pswconfirm" required>
+          <input type="password" placeholder="Confirm Password" name="password_confirmation">
 
           <button type="submit" name="register" class="modalSubmit">Finished Registering</button>
         </div>
@@ -119,6 +121,7 @@ New User Modal
 
     <div class="container psw" style="background-color:#f1f1f1">
       <a href="#">Forgot password?</a>
+      @include('errors')
     </div>
   </form>
 </div>   

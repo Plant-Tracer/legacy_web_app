@@ -19,3 +19,7 @@ Route::get('/plantliteracy','PlantLiteracyController@index');
 
 Route::get('/database','DatabaseController@index');
 
+Route::get('/forums','ForumsController@index');
+
+Route::post('/users', 'IndexController@store');
+

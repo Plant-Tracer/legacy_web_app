@@ -11,7 +11,7 @@
 |
 */
 
-Route::get('/index', 'IndexController@index');
+Route::get('/index', 'IndexController@index')->name('home');
 
 Route::get('/usingplanttracer', 'UsingPTController@index');
 
@@ -21,5 +21,9 @@ Route::get('/database','DatabaseController@index');
 
 Route::get('/forums','ForumsController@index');
 
-Route::post('/users', 'IndexController@store');
+Route::post('/register', 'RegistrationController@store');
+
+Route::get('/logout', 'SessionsController@destroy');
+
+
 

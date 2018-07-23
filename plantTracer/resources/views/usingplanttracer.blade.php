@@ -18,45 +18,7 @@
 
 <body>
 
-<span class="toggle-button">
-     <div class="menu-bar menu-bar-top"></div>
-     <div class="menu-bar menu-bar-middle"></div>
-     <div class="menu-bar menu-bar-bottom"></div>
-</span>
-    
-<div class="menu-wrap">
-    <div class="menu-sidebar">
-        <ul class="menu">
-            <li><a href="{{url('/index')}}">Home</a></li>
-            <li><a href="{{url('/usingplanttracer')}}">Using Plant Tracer</a></li>
-            <!-- <li><a href="database.html">Database</a></li>
-            <li><a href="forums.html">Forums</a></li>
--->
-            <li><a href="{{url('/plantliteracy')}}">Plant Literacy</a></li>
-        </ul>           
-    </div>
-</div>
-
-<div class="navBar">
-    <div id="homeBtn"><p id="homeLogoBtn"><a href="{{url('/index')}}">Plant Tracer</a></p></div>
-    <div id="notHomeBtns">
-        <div class="navItem">
-<a href="{{url('/usingplanttracer')}}">Using Plant Tracer</a></div>
-        <div class="line" id="firstLine"><p id="firstLine">|</p></div>
-<!--
-        <div class="navItem"><a id="database" href="database.html">Database</a></div>
-        <div class="line"><p>|</p></div>
-        <div class="navItem"><a id="forums" href="forums.html">Forums</a></div>
-        <div class="line"><p>|</p></div>
--->
-        <div class="navItem" id="plantLiteracy"><a href="{{url('plantliteracy')}}">Plant Literacy</a></div>
-    </div>
-    
-    <div id="userBtns">
-        <div id="contactBtn"><button id="contact" type="button"><a href="mailto:brennerbotany@gmail.com?" target="_top">Contact</a></button></div>
-        <div id="accountBtn"><button id="account" type="button">My Account</button></div>
-    </div>
-</div>
+    @include('navbar')
     
 <div class = "desktop">
 <h1>Step 1. <span class="unbold">Grow your specimens</span></h1>
@@ -178,13 +140,13 @@
     <div class="mobileStep">
         <img class="mobileImg" src="img/mobileStep3Img.png">
         <div id="step2Bubble1"><img class="substepBubble" src="img/Substep%20Bubble%201.png"></div>
-        <p class="description"><strong>Backdrop </strong> - A dull black background, such as a black folder, ensures software can track movement</p>
+        <p class="description"><strong>Backdrop </strong> - A dull, black background ensures software can track movement</p>
     </div>
     
     <div class="mobileStep">
         <img class="mobileImg" src="img/mobilestep3Img2.png">
         <div id="step2Bubble1"><img class="substepBubble" src="img/Substep%20Bubble%202.png"></div>
-        <p class="description"><strong>Cultivated Mutant and Wild Type Plants </strong></p>
+        <p class="description"><strong>Cultivated Mutant and Wild Type Plants </strong>- You will need both genotypes of the Arabidopsis thaliana in order to measure them in Plant Tracer.</p>
     </div>
     
     <div class="mobileStep">
@@ -202,7 +164,7 @@
     <div class="mobileStep">
         <img class="mobileImg" src="img/mobilestep3Img5.png">
         <div><img class="substepBubble" src="img/Substep%20Bubble%205.png"></div>
-        <p class="description"><strong>Phone Stand </strong> - You can use Binder CLips to your phone while recording your experiment.</p>
+        <p class="description"><strong>Phone Stand </strong> - You can use Binder Clips to hold your phone in place while recording your experiment.</p>
     </div>
     
     <div class="mobileStep">

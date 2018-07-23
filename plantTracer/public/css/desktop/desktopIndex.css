@@ -22,7 +22,12 @@
     
     #homeLogo {
     width: 80%;
-}
+    }
+    
+    #icon{
+        width: 12%;
+        padding-right: 5%;
+    }
 
     #description {
         font-family: "futura";

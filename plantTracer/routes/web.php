@@ -21,9 +21,16 @@ Route::get('/database','DatabaseController@index');
 
 Route::get('/forums','ForumsController@index');
 
-Route::post('/register', 'RegistrationController@store');
+Route::get('/about', 'AboutController@index');
+
+//Route::get('/login', 'SessionsController@store');
 
 Route::get('/logout', 'SessionsController@destroy');
+
+Route::post('/database', 'RegistrationController@store');
+
+//Route::post('/database', 'SessionsController@store');
+
 
 
 

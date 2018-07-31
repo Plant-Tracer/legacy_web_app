@@ -24,13 +24,13 @@
         <div class="navItem">
 <a href="{{url('/usingplanttracer')}}">Using Plant Tracer</a></div>
         <div class="line" id="firstLine"><p id="firstLine">|</p></div>
-<!--
-        <div class="navItem"><a id="database" href="database.html">Database</a></div>
+
+        <div class="navItem"><a href="{{url('database')}}">Database</a></div>
+<!--    <div class="navItem"><a id="forums" href="forums.html">Forums</a></div> -->
         <div class="line"><p>|</p></div>
-        <div class="navItem"><a id="forums" href="forums.html">Forums</a></div>
-        <div class="line"><p>|</p></div>
--->
         <div class="navItem" id="plantLiteracy"><a href="{{url('plantliteracy')}}">Plant Literacy</a></div>
+        <div class="line"><p>|</p></div>
+        <div class="navItem" id="about"><a href="{{url('/about')}}">About</a></div>
     </div>
     
     <div id="userBtns">

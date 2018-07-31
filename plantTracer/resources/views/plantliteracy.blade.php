@@ -33,15 +33,6 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
     <script>
         
-                
-        $("#database").on("click", function(){
-            $("#database").removeAttr("href");
-        });
-        
-        $("#forums").on("click", function(){
-            $("#forums").removeAttr("href");
-        });
-        
         $(document).ready(function() {
         $(".navBar a").each(function() {
         if (this.href == window.location.href) {

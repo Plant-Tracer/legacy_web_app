@@ -82,6 +82,13 @@
 
 }
 
+/* CSS for Errors Modal */
+#errors-modal {
+    display: none;
+    z-index: 1;
+    font-family: futura;
+}
+
 /* CSS for Login Modal */
 
 input[type=text], input[type=password] {
@@ -124,7 +131,6 @@ img.avatar {
 
 /* The Modal (background) */
 .modal {
-    display: none; /* Hidden by default */
     position: fixed; /* Stay in place */
     z-index: 1; /* Sit on top */
     left: 0;
@@ -136,6 +142,10 @@ img.avatar {
     background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
     padding-top: 60px;
     font-family: "futura";
+}
+
+.noDisplay {
+    display: none; /* Hidden by default */
 }
 
 /* Modal Content/Box */

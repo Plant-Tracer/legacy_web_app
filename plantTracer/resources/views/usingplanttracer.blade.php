@@ -29,7 +29,7 @@
         <div id="subStepOne" class="step">
             <img id="bottle" src="img/Step%201/bottle.png">
             <img id="substepBubble1" src="img/Substep%20Bubble%201.png">
-            <p class="instruction"><strong>3 months prior</strong> to your experiment, <u><a href="">order seeds</a>.</u> Ensure you have a proper lighting setup: you can <u><a href="">create your own lighting</a></u> or <u><a href="https://www.carolina.com/growth-and-light-carts/plant-growth-cart/199716.pr?question=plant+growth+cart" target="_blank">purchase a lighting arrangement</a>.</u></p>
+            <p class="instruction"><strong>3 months prior</strong> to your experiment, <u><a href="mailto:brennerbotany@gmail.com?Subject=Order%20for%20Seeds" target="_top">order seeds</a>.</u> Ensure you have a proper lighting setup: you can <u><a href="">create your own lighting</a></u> or <u><a href="https://www.carolina.com/growth-and-light-carts/plant-growth-cart/199716.pr?question=plant+growth+cart" target="_blank">purchase a lighting arrangement</a>.</u></p>
         </div>
         <div id="subStepTwo" class="step">
             <img id="potter" src="img/Step%201/potter.png">
@@ -107,7 +107,7 @@
     <div class="mobileStep">
         <img id="bottle" src="img/Bottle.png">
         <img class="substepBubble" src="img/Substep%20Bubble%201.png">
-        <p class="description"><strong>3 months prior</strong> to your experiment, <u><a href="">order seeds</a>.</u> Ensure you have a proper lighting setup: you can <u><a href="">create your own lighting</a></u> or <u><a href="">purchase a lighting arrangement</a>.</u></p>
+        <p class="description"><strong>3 months prior</strong> to your experiment, <u><a href="mailto:brennerbotany@gmail.com?Subject=Order%20for%20Seeds" target="_top">order seeds</a>.</u> Ensure you have a proper lighting setup: you can <u><a href="">create your own lighting</a></u> or <u><a href="">purchase a lighting arrangement</a>.</u></p>
     </div>
     
     <div class="mobileStep">
@@ -293,14 +293,6 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
     <script>
         
-        $("#database").on("click", function(){
-            $("#database").removeAttr("href");
-        });
-        
-        $("#forums").on("click", function(){
-            $("#forums").removeAttr("href");
-        });
-        
         $(document).ready(function() {
         $(".navBar a").each(function() {
         if (this.href == window.location.href) {
@@ -428,10 +420,6 @@ function mobile(n) {
   var i;
   var x = document.getElementsByClassName("mobileStep");
     console.log(x.length);
-    /*
-  if (n > x.length) {curSlide = 1}    
-  if (n < 1) {curSlide = x.length}
-  */
   for (i = 0; i < x.length; i++) {
      x[i].style.display = "none";  
   }

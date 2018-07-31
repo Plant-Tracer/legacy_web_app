@@ -1,31 +1,10 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App;
 
-use Illuminate\Http\Request;
-use App\Trait;
-use Auth;
-use DB;
+use Illuminate\Database\Eloquent\Model;
 
-class DatabaseController extends Controller
-{
-    public function index(){
-
-    	if(Auth::check()){
-
-    		$userEmail = Auth::user()->email;
-    	
-    		$users = DB::table('plant_tracing')->where('researcher', '=',$userEmail)->get();
-
-    	    $this->charts();
-
-    		return view('database', compact('users'));
-    	}
-
-    	else{
-    		return back()->with('alert', 'You must be logged in to access this page!');
-    	}
-    }
+    trait chart {
 
     	public function charts(){
 
@@ -49,4 +28,5 @@ class DatabaseController extends Controller
             ]);
 
     }
-}
+
+    }

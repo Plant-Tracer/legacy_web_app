@@ -16,11 +16,13 @@
     </head>
     <body>
 
-        @include('navbar')
+@include('navbar')
+
+<!-- login modal -->
     
-<div id="login" class="modal">
+<div id="login" class="modal noDisplay">
   
-  <form class="modal-content animate" method="POST" action="/login">
+  <form class="modal-content animate" method="POST" action="/database">
     {{ csrf_field() }}
     <div class="imgcontainer">
       <span onclick="document.getElementById('login').style.display='none'" class="close" title="Close Modal">&times;</span>
@@ -34,7 +36,7 @@
       <label for="psw"><b>Password</b></label>
       <input type="password" placeholder="Password" name="password" required>
         
-      <button type="submit" name="login" class="modalSubmit">Login</button>
+      <button type="submit" name="login" id="loginBtn" class="modalSubmit">Login</button>
     </div>
 
     <div class="container psw" style="background-color:#f1f1f1">
@@ -47,9 +49,9 @@
 New User Modal
 -->
 
-<div id="newUser" class="modal">
+<div id="newUser" class="modal noDisplay">
   
-  <form class="modal-content-newUser animate" method="POST" action="/register">
+  <form class="modal-content-newUser animate" method="POST" action="/database">
     {{ csrf_field() }}
     <div class="imgcontainer-newUser">
       <span onclick="document.getElementById('newUser').style.display='none'" class="close-newUser" title="Close Modal">&times;</span>
@@ -71,7 +73,7 @@ New User Modal
           <label for="psw"><b>Confirm Password</b></label>
           <input type="password" placeholder="Confirm Password" name="password_confirmation" required>
 
-          <button type="submit" name="register" class="modalSubmit">Finished Registering</button>
+          <button type="submit" id="registerBtn" name="register" class="modalSubmit">Finished Registering</button>
         </div>
         
         <div class="iPhone">
@@ -82,7 +84,6 @@ New User Modal
 
     <div class="container psw" style="background-color:#f1f1f1">
       <a href="#">Forgot password?</a>
-      @include('errors')
     </div>
   </form>
 </div>   
@@ -106,17 +107,32 @@ New User Modal
 
     </body>
 
+<script type="text/javascript">
+
+  var msg = '{{Session::get('alert')}}';
+  var exist = '{{Session::has('alert')}}';
+  if(exist){
+    alert(msg);
+  }
+    
+// When the user clicks anywhere outside of the modal, close it
+    var loginModal = document.getElementById('login');
+    var registerModal = document.getElementById('newUser');
+
+    window.onclick = function(event){
+        if(event.target == loginModal){
+            loginModal.style.display = "none";
+        }
+
+        if(event.target == registerModal){
+            registerModal.style.display = "none";
+        }
+    }
+
+</script>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
     <script>
-        
-        $("#database").on("click", function(){
-            $("#database").removeAttr("href");
-        });
-        
-        $("#forums").on("click", function(){
-            $("#forums").removeAttr("href");
-        });
         
         $(document).ready(function() {
         $(".navBar a").each(function() {
@@ -125,7 +141,8 @@ New User Modal
         }
     });
 });
-        
+    
+    //Change navbar button color to different color when active
         $(document).ready(function(){
             $(".menu-wrap a").each(function() {
                 if(this.href == window.location.href) {
@@ -133,14 +150,8 @@ New User Modal
                 }
             })
         });
-
-        var modal = document.getElementById('login');
-        window.onclick = function(event){
-            if(event.target == modal){
-                modal.style.display = "none";
-            }
-        }
     
+    //Redirect to App store when downloadbtn is clicked
     $("#downloadBtn").on('click', function (){
         if(navigator.userAgent.toLowerCase().indexOf("android") > -1){
             window.location.href = 'http://play.google.com/store/apps/details?id=com.truecaller&hl=en';
@@ -150,6 +161,7 @@ New User Modal
         }
     });
 
+    //Open mailing client in another window depending on resize
         $(window).resize(function(){
             if(window.innerWidth<601){
                 mailTo();
@@ -172,7 +184,8 @@ New User Modal
                 $("#login").html("Login");
             }
         });
-    
+
+    //open hamburger button when clicked
     $(document).ready(function() {
         var $toggleButton = $('.toggle-button');
         var $menuWrap = $('.menu-wrap');
@@ -182,15 +195,6 @@ New User Modal
             $menuWrap.toggleClass('menu-show');
         });
     });
-   
-    var modal = document.getElementById('id01');
-
-// When the user clicks anywhere outside of the modal, close it
-window.onclick = function(event) {
-    if (event.target == modal) {
-        modal.style.display = "none";
-    }
-}    
     
     </script>
 </html>

@@ -15,45 +15,8 @@
 </head>
 
 <body>
-    
-<span class="toggle-button">
-     <div class="menu-bar menu-bar-top"></div>
-     <div class="menu-bar menu-bar-middle"></div>
-     <div class="menu-bar menu-bar-bottom"></div>
-</span>
-    
-<div class="menu-wrap">
-    <div class="menu-sidebar">
-        <ul class="menu">
-            <li><a href="{{'/index'}}">Home</a></li>
-            <li><a href="{{'/usingplanttracer'}}">Using Plant Tracer</a></li>
-            <li><a href="{{'/database'}}">Database</a></li>
-            <li><a href="{{'/forums'}}">Forums</a></li>
-            <li><a href="{{'/plantliteracy'}}">Plant Literacy</a></li>
-        </ul>           
-    </div>
-</div>
 
-<div class="navBar">
-    <div id="homeBtn"><p id="homeLogoBtn"><a href="index.php">Plant Tracer</a></p></div>
-    
-    <div id="notHomeBtns">
-        <div class="navItem"><a href="{{url('/usingplanttracer')}}">Using Plant Tracer</a></div>
-        <div id="firstLine" class="line"><p>|</p></div>
-        <div class="navItem"><a href="{{url('/database')}}">Database</a></div>
-        <div class="line"><p>|</p></div>
-        <div class="navItem"><a href="{{url('/forums')}}">Forums</a></div>
-        <div class="line"><p>|</p></div>
-        <div class="navItem" id="plantLiteracy"><a href="{{url('/plantliteracy')}}">Plant Literacy</a></div>
-        <div class="line"><p>|</p></div>
-        <div class="navItem" id="about"><a href="{{url('/about')}}">About</a></div>
-    </div>
-    
-    <div id="userBtns">
-        <div id="contactBtn"><button id="contact" type="button"><a href="mailto:brennerbotany@gmail.com?" target="_top">Contact</a></button></div>
-        <div id="accountBtn"><button id="account" type="button">My Account</button></div>
-    </div>
-</div>
+@include('navbar')
     
     <div id="filterColumns">
         <div class="filterTypes">
@@ -116,21 +79,34 @@
         
     </div>
     <hr>
+
+    <div id="bottomHalf">
+
     <div class="vertical-menu">
         <div class="header">
             <div class="headerText">My Data</div>
         </div>
         <div class="content">
-            <a href="#">Some Link 1</a>
-            <a href="#">Some Link 2</a>
-            <a href="#">Some Link 3</a>
-            <a href="#">Some Link 4</a>
-            <a href="#">Some Link 5</a>
-            <a href="#">Some Link 6</a>
-            <a href="#">Some Link 7</a>
-            <a href="#">Some Link 8</a>
-            <a href="#">Some Link 9</a>
+            @foreach($users as $user)
+            <a href="#" id="dataBtn">
+                <span id="researcher">{{$user->researcher}}</span><br><span id="movement">{{$user->movement}}</span> - <span id="gene">{{$user->gene}}</span> - <span id="geneID">{{$user->geneID}}</span><br><span id="date">{{$user->dateLogged}}</span>
+            </a>
+            @endforeach
         </div>
+    </div>
+
+    <div id="stocks-div">
+        @linechart('Stocks', 'stocks-div')
+    </div>
+
+    <div id="userProfile">
+        <p><strong>Experiment Details</strong></p>
+        <p>Movement: <span id="movementDetail">Movement</span></p>
+        <p>Genotype: <span id="genotype">Genotype</span></p>
+        <p>Gene: <span id="geneDetail">Gene</span></p>
+        <p>Upload Date: <span id="uploadDate">Upload</span></p>
+    </div>
+
     </div>
 
 </body>
@@ -145,15 +121,28 @@
     });
 });
     
-    $(document).ready(function() {
-        var $toggleButton = $('.toggle-button');
-        var $menuWrap = $('.menu-wrap');
-        
-        $toggleButton.on('click', function() {
-            $(this).toggleClass('button-open');
-            $menuWrap.toggleClass('menu-show');
+        $(document).ready(function() {
+            var $toggleButton = $('.toggle-button');
+            var $menuWrap = $('.menu-wrap');
+            
+            $toggleButton.on('click', function() {
+                $(this).toggleClass('button-open');
+                $menuWrap.toggleClass('menu-show');
+            });
         });
-    });
+
+            var researcherTxt = $("#researcher").text();
+            var movementTxt = $("#movement").text();
+            var geneTxt = $("#gene").text();
+            var geneIDTxt = $("#geneID").text();
+            var dateTxt = $("#date").text();
+            $("#movementDetail").text(movementTxt);
+            $("#genotype").text(geneTxt);
+            $("#geneDetail").text(geneIDTxt);
+            $("#uploadDate").text(dateTxt);
+
     </script>
 
 </html>
+
+

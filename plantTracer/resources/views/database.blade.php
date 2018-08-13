@@ -3,11 +3,16 @@
 <html>
     
 <head>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>
         Database
     </title>
 
+<!-- Chartist JS stylesheets -->
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/chartist.js/latest/chartist.min.css">
+    <script src="//cdn.jsdelivr.net/chartist.js/latest/chartist.min.js"></script>
+
+<!-- CSS -->
     <link rel="stylesheet" type = "text/css" href="{{url('/css/mobile/mobileNavBar.css')}}">
     <link rel="stylesheet" type = "text/css" href="{{url('/css/desktop/desktopDatabase.css')}}">
     <link rel="stylesheet" type = "text/css" href="{{url('/css/desktop/desktopNavBar.css')}}">
@@ -17,6 +22,7 @@
 <body>
 
 @include('navbar')
+@include('footervarview')
     
     <div id="filterColumns">
         <div class="filterTypes">
@@ -95,9 +101,8 @@
         </div>
     </div>
 
-    <div id="stocks-div">
-        @linechart('Stocks', 'stocks-div')
-    </div>
+    <div class="ct-chart" id="chart1"></div>
+    <div class="ct-chart" id="chart2"></div>
 
     <div id="userProfile">
         <p><strong>Experiment Details</strong></p>
@@ -120,7 +125,7 @@
         }
     });
 });
-    
+
         $(document).ready(function() {
             var $toggleButton = $('.toggle-button');
             var $menuWrap = $('.menu-wrap');
@@ -130,6 +135,38 @@
                 $menuWrap.toggleClass('menu-show');
             });
         });
+
+        //charts
+
+        var options = {
+            width: 380,
+            height: 380
+        };
+
+        new Chartist.Line('#chart1', {
+            labels: windowvar.xAxis,
+            series:[
+                windowvar.graphOnePoints
+            ],
+
+
+        }, options);
+
+        new Chartist.Line('#chart2', {
+            labels: windowvar.xAxis,
+            series: [
+                windowvar.graphTwoPoints
+            ]
+        }, options);
+
+//Problem area
+        $(document).ready(function() {
+            $(".content a").each(function() {
+            if (this.href == window.location.href) {
+                $(this).addClass("active");
+            }
+        });
+    });
 
             var researcherTxt = $("#researcher").text();
             var movementTxt = $("#movement").text();

@@ -11,26 +11,23 @@
 |
 */
 
-Route::get('/index', 'IndexController@index')->name('home');
+Route::resource('/index','AuthController')->except(['create']);
 
+Route::get('/database', 'DatabaseController@index');
+
+//Return using plant tracer view
 Route::get('/usingplanttracer', 'UsingPTController@index');
 
+//Return plant literacy view
 Route::get('/plantliteracy','PlantLiteracyController@index');
 
-Route::get('/database','DatabaseController@index');
-
+//Return forums views
 Route::get('/forums','ForumsController@index');
 
+//Return about view
 Route::get('/about', 'AboutController@index');
 
-//Route::get('/login', 'SessionsController@store');
-
-Route::get('/logout', 'SessionsController@destroy');
-
-Route::post('/database', 'RegistrationController@store');
-
-//Route::post('/database', 'SessionsController@store');
-
-
+//Destroy user session, return homepage
+Route::get('/logout', 'AuthController@destroy');
 
 

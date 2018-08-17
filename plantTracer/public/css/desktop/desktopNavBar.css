@@ -35,8 +35,9 @@
         color: none !important;
     }
 
-    .active {
+    .navbar a.active {
         text-shadow: 2px 2px 5px #9dff2e; 
+        /*background-color: #bfe3ab;*/
     }
 
     #homeBtn {

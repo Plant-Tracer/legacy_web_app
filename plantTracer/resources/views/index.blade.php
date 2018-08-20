@@ -26,6 +26,7 @@
   <body>
 
 @include('navbar')
+@include('footervarview')
 
 <!-- Registration Modal -->
   <div class="container">
@@ -164,6 +165,11 @@
         }
     });
 });
+        $(document).ready(function(){
+            if(windowvar.isLoggedIn === true){
+                $("#navLogin").text("Logout");
+            }
+        });
 
          jQuery(document).ready(function(){
             jQuery('#ajaxSubmit').click(function(e){

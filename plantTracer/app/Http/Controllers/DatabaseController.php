@@ -5,7 +5,6 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Auth;
 use DB;
-use Lava;
 use JavaScript;
 
 class DatabaseController extends Controller
@@ -28,6 +27,8 @@ class DatabaseController extends Controller
     	
     		$prefilledUserData = DB::table('plant_tracing')->where('researcher', '=',$userEmail)->first();
 
+            $isLoggedIn = true;
+
     		$xAxis = explode(',',$prefilledUserData->graphTime);
     		$graphOnePoints = explode(',',$prefilledUserData->graphX);
     		$graphTwoPoints = explode(',',$prefilledUserData->graphY);
@@ -46,7 +47,8 @@ class DatabaseController extends Controller
                     'genotype' => $genotype,
                     'geneID' => $geneID,
                     'date' => $date,
-                    'users' => $users
+                    'users' => $users,
+                    'isLoggedIn' => $isLoggedIn
 
     			]);
 

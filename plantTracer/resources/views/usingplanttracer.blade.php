@@ -19,6 +19,7 @@
 <body>
 
     @include('navbar')
+    @include('footervarview')
     
 <div class = "desktop">
 <h1>Step 1. <span class="unbold">Grow your specimens</span></h1>
@@ -34,7 +35,7 @@
         <div id="subStepTwo" class="step">
             <img id="potter" src="img/Step%201/potter.png">
             <img id="substepBubble2" src="img/Substep%20Bubble%202.png">
-            <p class="instruction">Seven weeks before the actual experiment plant seeds. Plant five (replicate) pots for every genotype. Plant 6 seeds per pot. Plant extra wildtype (Columbia) as your control. For details on growing Arabidopsis click <u><a href="">HERE</a></u>.</p>
+            <p class="instruction">Seven weeks before the actual experiment plant seeds. Plant five (replicate) pots for every genotype. Plant 6 seeds per pot. Plant extra wildtype (Columbia) as your control. For details on growing Arabidopsis click <u><a href="https://abrc.osu.edu/seed-handling" target="_blank">HERE</a></u>.</p>
         </div>
         <div id="subStepThree" class="step">
             <img id="bigPlant" src="img/Step%201/bigPlant.png">
@@ -300,6 +301,11 @@
         }
     });
 });
+        $(document).ready(function(){
+            if(windowvar.isLoggedIn === true){
+                $("#navLogin").text("Logout");
+            }
+        });
         
         $(document).ready(function(){
             $(".menu-wrap a").each(function() {

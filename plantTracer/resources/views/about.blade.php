@@ -10,6 +10,7 @@
 <body>
 
 	@include('navbar')
+	@include('footervarview')
 
 	<h3>
 
@@ -34,5 +35,13 @@
             window.location.href = 'http://itunes.apple.com/lb/app/truecaller-caller-id-number/id448142450?mt=8';
         }
     });
+
+        $(document).ready(function(){
+            if(windowvar.isLoggedIn === true){
+                $("#navLogin").text("Logout");
+            }
+        });   
+
+
 </script>
 </html>

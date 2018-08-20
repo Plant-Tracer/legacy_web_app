@@ -221,12 +221,15 @@
         font-size: 0.90vw;
     }
 
-    #charts-div{
-        width: 60%;
+    .ct-chart{
         justify-content: center;
-        padding-top: 20%;
+        margin-top: 2%;
         padding-left: 12px;
 
+    }
+
+    .ct-label{
+        font-size: 0.60rem;
     }
 
     #researcherName{
@@ -239,18 +242,23 @@
         width: 15%;
         height: 20%;
         text-align: center;
-        padding: 12px;
-        margin-left: 5%;
+        padding-right: 12px;
+        margin-top: 2%;
     }
 
     #userAvatar{
-        width: 35%;
+        width:35%;
         float: left;
+    }
+
+    .profileAvatar{
+        padding:15px;
     }
 
     .profileContent{
         display: flex;
         flex-direction: column;
+        padding-left: 30px;
     }
 
     #expDetails{

@@ -34,13 +34,13 @@
         </div>
         
         <div class="buttonColOne filterColumn">
-            <button type="button" class="filterBtn" id="movementOne">Circumnutation</button>
-            <button type="button" class="filterBtn" id="plantTypeOne">Mutant</button>
+            <button type="button" class="filterBtn" id="movementOne" ng-click="changeMovement('circumnutation')">Circumnutation</button>
+            <button type="button" class="filterBtn" id="plantTypeOne" ng-click="changeType('Mutant')">Mutant</button>
         </div>
         
         <div class="buttonColTwo filterColumn">
-            <button type="button" class="filterBtn" id="movementTwo">Gravitropism</button>
-            <button type="button" class="filterBtn" id="plantTypeTwo">Wild Type</button>
+            <button type="button" class="filterBtn" id="movementTwo" ng-click="changeMovement('gravitropism')">Gravitropism</button>
+            <button type="button" class="filterBtn" id="plantTypeTwo" ng-click="changeType('Wild Type')">Wild Type</button>
         </div>
         
         <div id="greenBarContainer"><img id="greenBar" src="img/Green%20Bar.png"></div>
@@ -62,25 +62,25 @@
                     
             <div class="thirdColumn">
                 <p id="amplitude">Amplitude</p>
-                <div><input class="thirdColInput" type="text" ng-model="min_amp"></div>
+                <div><input class="thirdColInput" type="text" ng-change="checkAmp()" ng-model="min_amp"></div>
                 <p>to</p>
-                <div><input class="thirdColInput" type="text" ng-model="max_amp"></div>
+                <div><input class="thirdColInput" type="text" ng-change="checkAmp()" ng-model="max_amp"></div>
                 <p>mm</p>
             </div>
 
             <div class="thirdColumn">
                 <p id="rate">Rate</p>
-                <div><input class="thirdColInput" type="text" ng-model="min_rate"></div>
+                <div><input class="thirdColInput" type="text" ng-change="checkRate()" ng-model="min_rate"></div>
                 <p>to</p>
-                <div><input class="thirdColInput" type="text" ng-model="max_rate"></div>
+                <div><input class="thirdColInput" type="text" ng-change="checkRate()" ng-model="max_rate"></div>
                 <p>mm/sec</p>
             </div>
 
             <div class="thirdColumn">
                 <p id="angle">Angle</p>
-                <div><input class="thirdColInput" type="text" ng-model="min_angle"></div>
+                <div><input class="thirdColInput" type="text" ng-change="checkAngle()" ng-model="min_angle"></div>
                 <p>to</p>
-                <div><input class="thirdColInput" type="text" ng-model="max_angle"></div>
+                <div><input class="thirdColInput" type="text" ng-change="checkAngle()" ng-model="max_angle"></div>
                 <p>deg.</p>
             </div>
         
@@ -96,10 +96,10 @@
             <div class="headerText">My Data</div>
         </div>
         <div class="content">
-            <a ng-repeat="user in users | filter:{arabiposisAccession:accession, researcher:researcher}" href="#" id="dataBtn">
+            <a ng-repeat="user in users | filter:{arabiposisAccession:accession, researcher:researcher} | filter:checkAmp() | filter:checkRate() | filter:checkAngle() | filter:filterMovement()" href="#" id="dataBtn" ng-click="changeData(user.movement,user.gene,user.geneID,user.dateLogged); changeGraphData(user.graphTime,user.graphX,user.graphY)">
 
-                <span id="researcherName" ng-model="my.researcher">@{{user.researcher}}</span><br>
-                <span id="movement" ng-model="my.movement">@{{user.movement}}</span> - <span id="gene" ng-model="my.genotype">@{{user.gene}}</span> - <span id="geneID" ng-model="my.geneID">@{{user.geneID}}</span><br><span id="date" ng-model="my.date">@{{user.dateLogged}}</span>
+                <span id="researcherName">@{{user.researcher}}</span><br>
+                <span id="movement">@{{user.movement}}</span> - <span id="gene">@{{user.gene}}</span> - <span id="geneID">@{{user.geneID}}</span><br><span id="date">@{{user.dateLogged}}</span>
 
                 <!-- Hidden attributes for data binding-->
                 <span style="display: none;">@{{user.arabiposisAccession}}</span>
@@ -107,7 +107,7 @@
                 <span style="display: none;">@{{user.rate}}</span>
                 <span style="display: none;">@{{user.angle}}</span>
 
-                <!-- Graph Stuff -->
+                <!-- Graph Data -->
                 <span id="xAxis" style="display: none;">@{{user.graphTime}}</span>
                 <span id="graphOneY" style="display: none;">@{{user.graphX}}</span>
                 <span id="graphTwoY" style="display: none;">@{{user.graphY}}</span>
@@ -120,7 +120,7 @@
     <div class="ct-chart" id="chart2"></div>
 
     <div id="userProfile">
-        <div class="profileContent">
+        <div class="profileAvatar">
             <img id="userAvatar" src="img/Database_Avatar.png" alt="User Avatar">
         </div>
         <div class="profileContent" id="expDetails">
@@ -152,35 +152,95 @@
         app.controller('dataCtrl', function($scope) {
             $scope.users = windowvar.users;
 
-            $scope.my = {researcher: windowvar.researcher, movement:windowvar.movement, genotype: windowvar.genotype, geneID: windowvar.geneID, date: windowvar.date};
+            $scope.my = {researcher: windowvar.researcher, movement:windowvar.movement, genotype: windowvar.genotype, geneID: windowvar.geneID, date: windowvar.date, xAxis: windowvar.xAxis, graphOneY: windowvar.graphOnePoints, graphTwoY: windowvar.graphOnePoints};
 
-            //$scope.researcher = angular.element(document.querySelector(".content a")).find('#movement');
-            
-            $scope.ampFilter = function (minAmp,maxAmp) {
-                return function(user){
-                    return (user.amplitude >= minAmp && user.amplitude <= maxAmp);
-                };
+            $scope.min_amp = '';
+            $scope.max_amp = '';
+            $scope.min_rate = '';
+            $scope.max_rate = '';
+            $scope.min_angle = '';
+            $scope.max_angle = '';
 
-            };
-            
-            $scope.rateFilter = function (minRate,maxRate) {
-                return function(user){
-                    return (user.rate >= minRate && user.rate <= maxRate);
-                };
+            $scope.activeMovement = '';
+            $scope.activeType = '';
 
+            $scope.changeData = function(movementString,geneString,geneIDString,dateString){
+                $scope.my = {movement:movementString,genotype: geneString, geneID: geneIDString, date: dateString};
             };
 
-            $scope.angleFilter = function (minAngle,maxAngle) {
-                return function(user){
-                    return (user.angle >= minAngle && user.angle <= maxAngle);
-                };
+            $scope.changeMovement = function(movementString){
+                    $scope.activeMovement = movementString;
+            }
 
+            $scope.changeGraphData = function(xAxisString,YStringOne,YStringTwo){
+                    var xAxisArray = xAxisString.split(',');
+                    var yArrayOne = YStringOne.split(',');
+                    var yArrayTwo = YStringTwo.split(',');
+
+                    chart(xAxisArray,yArrayOne,yArrayTwo);
+            }
+
+            $scope.filterMovement = function(){
+                return function(user){
+                    if($scope.activeMovement.length !== 0 && typeof $scope.activeMovement !== 'undefined'){
+                        return (user.movement === $scope.activeMovement);
+                    }
+                    else{
+                        return user;
+                    }
+                }
+            }
+
+            $scope.changeType = function(typeString){
+                    $scope.activeType = typeString;
+            }
+
+            $scope.filterType = function(){
+                return function(user){
+                    if($scope.activeType.length !== 0 && typeof $scope.activeType !== 'undefined'){
+                        return (user.gene === $scope.activeType);
+                    }
+                    else{
+                        return user;
+                    }
+                }
+            }
+
+            $scope.checkAmp = function(){
+                return function(user){
+                    if(($scope.min_amp.length !== 0 && typeof $scope.min_amp !== 'undefined') && ($scope.max_amp.length !== 0 && typeof $scope.max_amp !== 'undefined') ){
+                            return (user.amplitude >= $scope.min_amp && user.amplitude <= $scope.max_amp);
+                    }
+                    else{
+                        return user;
+                    }
+                }
+            };
+
+            $scope.checkRate = function(){
+                return function(user){
+                    if(($scope.min_rate.length !== 0 && typeof $scope.min_rate !== 'undefined') && ($scope.max_rate.length !== 0 && typeof $scope.max_rate !== 'undefined') ){
+                            return (user.rate >= $scope.min_rate && user.rate <= $scope.max_rate);
+                    }
+                    else{
+                        return user;
+                    }
+                }
+            };
+
+            $scope.checkAngle = function(){
+                return function(user){
+                    if(($scope.min_angle.length !== 0 && typeof $scope.min_angle !== 'undefined') && ($scope.max_angle.length !== 0 && typeof $scope.max_angle !== 'undefined') ){
+                            return (user.angle >= $scope.min_angle && user.angle <= $scope.max_angle);
+                    }
+                    else{
+                        return user;
+                    }
+                }
             };
 
         });
-        /*
-        | filter:ampFilter(min_amp,max_amp) | filter:rateFilter(min_rate,max_rate) | filter:angleFilter(min_angle,max_angle)
-        */
+
         $(document).ready(function(){
             $("#movementOne").on("click",function(){
                 toggleActive($("#movementOne"),$("#movementTwo")); 
@@ -209,10 +269,10 @@
                 }
         }
 
-        function chart(array1, array2, array3){
+        var chart = function(array1, array2, array3){
 
                 var options = {
-                    width: 380,
+                    width: 420,
                     height: 380
                 };
 
@@ -233,47 +293,16 @@
                 }, options);
         }
 
-        chart(windowvar.xAxis,windowvar.graphOnePoints,windowvar.graphTwoPoints);        
-
-// CHANGE USER INFO BOX TO REFLECT INFO OF CURRENTLY PRESSED DATA BUTTON
+        chart(windowvar.xAxis,windowvar.graphOnePoints,windowvar.graphTwoPoints);
 
         $(document).ready(function(){
-            $(".content a").on("click",function(){
-
-                var movement = $(this).find("#movement");
-                var gene = $(this).find("#gene");
-                var geneID = $(this).find("#geneID");
-                var date = $(this).find("#date");
-
-                $("#movementDetail").text(movement.text());
-                $("#genotype").text(gene.text());
-                $("#geneDetail").text(geneID.text());
-                $("#uploadDate").text(date.text());
-
-                //CHARTS
-
-                //Turn the graphTime into an array that can be used as the graphs' X-axis
-                var xAxisString = $(this).find("#xAxis");
-                var xAxis = xAxisString.text();
-                xAxis = xAxis.split(",");
-                console.log("X Axis: " +xAxis);
-
-                //Same for first graph's Y-Axis
-                var graphOneString = $(this).find("#graphOneY");
-                var yAxisOne = graphOneString.text();
-                yAxisOne = yAxisOne.split(",");
-                console.log("Graph One Y: "+yAxisOne);
-
-                //Same for second graph's Y-Axis
-                var graphTwoString = $(this).find("#graphTwoY");
-                var yAxisTwo = graphTwoString.text();
-                yAxisTwo = yAxisTwo.split(",");
-                console.log("Graph Two Y: "+yAxisTwo);
-
-                chart(xAxis,yAxisOne,yAxisTwo);
-
-            });
-        });
+            if(windowvar.isLoggedIn === true){
+                $("#navLogin").text("Logout");
+                $("#navLoginBtn").on('click',function(){
+                    
+                })
+            }
+        });       
 
         $(document).ready(function() {
             var $toggleButton = $('.toggle-button');

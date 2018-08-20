@@ -35,6 +35,6 @@
     
     <div id="userBtns">
         <div id="contactBtn"><button id="contact" type="button"><a href="mailto:brennerbotany@gmail.com?" target="_top">Contact</a></button></div>
-        <div id="navLoginBtn"><button type="button" id="navLogin" data-toggle="modal" data-target="#loginModal" id="open">Login</button></div>
+        <div id="navLoginBtn"><button type="button" id="navLogin" data-toggle="modal" data-target="#loginModal" id="open">Login</button><a href="#" id="logout"></a></div>
     </div>
 </div>

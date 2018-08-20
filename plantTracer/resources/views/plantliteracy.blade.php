@@ -18,6 +18,7 @@
 <body>
     
     @include('navbar')
+    @include('footervarview')
     
     <h1 id="literacyHeading">
         Links to the Plant World
@@ -47,6 +48,11 @@
         }
     });
 });
+        $(document).ready(function(){
+            if(windowvar.isLoggedIn === true){
+                $("#navLogin").text("Logout");
+            }
+        });
     
         $(document).ready(function(){
             $(".menu-wrap a").each(function() {

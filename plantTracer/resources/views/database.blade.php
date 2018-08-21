@@ -298,9 +298,9 @@
         $(document).ready(function(){
             if(windowvar.isLoggedIn === true){
                 $("#navLogin").text("Logout");
-                $("#navLoginBtn").on('click',function(){
-                    
-                })
+                $("#logoutLink").on('click',function(){
+                    $(this).attr("href","{{url('/logout')}}");
+                });
             }
         });       
 

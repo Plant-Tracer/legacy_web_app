@@ -76,12 +76,25 @@
   </form>
 </div>
 @if (session('alert'))
-    <div class="modal" tabindex="-1" role="dialog" id="loginModal">
-    </div>
-    <div class="alert alert-success" tabindex="-1">
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-        <strong>{{ session('alert') }}</strong>
-    </div>
+
+<!-- Alert Modal
+<div id="alertModal" class="modal">
+-->
+  <!-- Modal content
+  <div class="modal-content">
+    <span class="close">&times;</span>
+    <p>{{ session('alert') }}</p>
+  </div>
+
+</div>
+-->
+<div class="alert alert-warning alert-dismissible fade show" role="alert">
+  <strong>{{ session('alert') }}</strong>
+  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+
 @endif
 <!-- Login Modal -->
 <div class="container">

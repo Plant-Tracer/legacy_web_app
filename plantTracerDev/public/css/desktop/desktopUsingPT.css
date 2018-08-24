@@ -30,6 +30,10 @@
         padding: 20px;
         text-align: center;
     }
+
+    .instruction{
+        color: #606061;
+    }
     
     #bottle {
         width: 100%;

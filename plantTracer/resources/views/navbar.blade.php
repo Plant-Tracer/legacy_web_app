@@ -25,16 +25,16 @@
 <a href="{{url('/usingplanttracer')}}">Using Plant Tracer</a></div>
         <div class="line" id="firstLine"><p id="firstLine">|</p></div>
 
-        <div class="navItem"><a href="{{url('database')}}">Database</a></div>
+        <div class="navItem"><a href="{{url('/database')}}">Database</a></div>
 <!--    <div class="navItem"><a id="forums" href="forums.html">Forums</a></div> -->
         <div class="line"><p>|</p></div>
-        <div class="navItem" id="plantLiteracy"><a href="{{url('plantliteracy')}}">Plant Literacy</a></div>
+        <div class="navItem" id="plantLiteracy"><a href="{{url('/plantliteracy')}}">Plant Literacy</a></div>
         <div class="line"><p>|</p></div>
         <div class="navItem" id="about"><a href="{{url('/about')}}">About</a></div>
     </div>
     
     <div id="userBtns">
         <div id="contactBtn"><button id="contact" type="button"><a href="mailto:brennerbotany@gmail.com?" target="_top">Contact</a></button></div>
-        <div id="navLoginBtn"><button type="button" id="navLogin" data-toggle="modal" data-target="#loginModal" id="open">Login</button><a href="#" id="logoutLink"></a></div>
+        <div id="navLoginBtn"><button type="button" id="navLogin" data-toggle="modal" data-target="#loginModal" id="open">Login</button><a href="#"></a></div>
     </div>
 </div>

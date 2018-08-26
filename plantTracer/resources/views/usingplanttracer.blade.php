@@ -304,8 +304,11 @@
         $(document).ready(function(){
             if(windowvar.isLoggedIn === true){
                 $("#navLogin").text("Logout");
+                $("#navLogin").on('click',function(){
+                    window.location.href="/logout";
+                });
             }
-        });
+        }); 
         
         $(document).ready(function(){
             $(".menu-wrap a").each(function() {

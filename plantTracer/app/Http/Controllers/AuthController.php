@@ -96,7 +96,8 @@ class AuthController extends Controller
         }
 
         else{
-            return response()->json(['errors'=>'Please make sure you have first registered in the Plant Tracer app']);
+
+            return back()->with('alert', 'Have you registered first?');
             }
     }
 

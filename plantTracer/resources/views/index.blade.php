@@ -77,22 +77,9 @@
 </div>
 @if (session('alert'))
 
-<!-- Alert Modal
-<div id="alertModal" class="modal">
--->
-  <!-- Modal content
-  <div class="modal-content">
-    <span class="close">&times;</span>
-    <p>{{ session('alert') }}</p>
-  </div>
-
-</div>
--->
-<div class="alert alert-warning alert-dismissible fade show" role="alert">
-  <strong>{{ session('alert') }}</strong>
-  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-    <span aria-hidden="true">&times;</span>
-  </button>
+<div id="message" class="alert alert-error">
+    <button type="button" class="close" data-dismiss="alert">&times;</button>
+    <strong>{{ session('alert') }}</strong>
 </div>
 
 @endif
@@ -178,11 +165,15 @@
         }
     });
 });
+
         $(document).ready(function(){
             if(windowvar.isLoggedIn === true){
                 $("#navLogin").text("Logout");
+                $("#navLogin").on('click',function(){
+                    window.location.href="/logout";
+                });
             }
-        });
+        }); 
 
          jQuery(document).ready(function(){
             jQuery('#ajaxSubmit').click(function(e){
@@ -208,7 +199,6 @@
                         jQuery('.alert-danger').show();
                         jQuery('.alert-danger').append('<li>'+value+'</li>');
                       });
-                      //$('#myModal').data('modal',null);
                     }
                     else
                     {
@@ -216,7 +206,6 @@
                       jQuery('.alert-danger').hide();
                       $('#open').hide();
                       $('#myModal').modal('hide');
-                      //$('#myModal').data('modal',null);
                       window.location.href="/database";
                     }
                   }});

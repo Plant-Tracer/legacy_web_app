@@ -29,4 +29,13 @@
     .Mobile {
         display: none;
     }
+
+/* CSS for Error Popup */
+    #message{
+       background-color: #ff7270;
+       position: absolute;
+       left: 40%;
+       top: 15%;
+       z-index: 999;
+    }
 }

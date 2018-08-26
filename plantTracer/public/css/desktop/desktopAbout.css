@@ -1,0 +1,25 @@
+
+h3{
+	text-align: center !important;
+	font-family: futura !important;
+	justify-content: center !important;
+	margin-right: 20vw !important;
+	margin-left: 20vw !important;
+	margin-top: 5vw !important;
+	color: #117d0a !important;
+}
+
+#downloadBtn:hover,
+#downloadBtn:focus{
+     cursor: pointer;
+   }
+
+/* CSS for Error Popup */
+#message{
+   background-color: #ff7270;
+   position: absolute;
+   left: 40%;
+   top: 15%;
+   z-index: 999;
+}
+

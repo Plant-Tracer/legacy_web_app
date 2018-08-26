@@ -12,6 +12,11 @@
     <link rel="stylesheet" type = "text/css" href="{{url('/css/mobile/mobileLiteracy.css') }}">
     <link rel="stylesheet" type = "text/css" href="{{url('/css/desktop/desktopNavBar.css') }}">
     <link rel="stylesheet" type = "text/css" href="{{url('/css/desktop/desktopLiteracy.css') }}"> 
+
+    <!-- Bootstrap -->
+      <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-beta.3/css/bootstrap.css" rel="stylesheet">  
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-beta.3/js/bootstrap.min.js"></script> 
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.0/jquery.js"></script> 
         
 </head>
 
@@ -24,6 +29,15 @@
         Links to the Plant World
     </h1>
     
+    @if (session('alert'))
+
+<div id="message" class="alert alert-error">
+    <button type="button" class="close" data-dismiss="alert">&times;</button>
+    <strong>{{ session('alert') }}</strong>
+</div>
+
+@endif
+
     <h2>
         <a class="literacyLink" href="https://botany.org/" target="_blank">Botanical Society of America</a>
         <a class="literacyLink" href="https://plantae.org/" target="_blank">Plantae</a>
@@ -51,8 +65,11 @@
         $(document).ready(function(){
             if(windowvar.isLoggedIn === true){
                 $("#navLogin").text("Logout");
+                $("#navLogin").on('click',function(){
+                    window.location.href="/logout";
+                });
             }
-        });
+        }); 
     
         $(document).ready(function(){
             $(".menu-wrap a").each(function() {

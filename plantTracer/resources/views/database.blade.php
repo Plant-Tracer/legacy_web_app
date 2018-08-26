@@ -208,9 +208,15 @@
 
             $scope.checkAmp = function(){
                 return function(user){
+
                     if(($scope.min_amp.length !== 0 && typeof $scope.min_amp !== 'undefined') && ($scope.max_amp.length !== 0 && typeof $scope.max_amp !== 'undefined') ){
                             return (user.amplitude >= $scope.min_amp && user.amplitude <= $scope.max_amp);
                     }
+
+                    else if(($scope.min_amp.length !== 0 && typeof $scope.min_amp !== 'undefined')&&($scope.max_amp.length === 0)){
+                        return (user.amplitude >= $scope.min_amp);
+                    }
+
                     else{
                         return user;
                     }
@@ -221,6 +227,10 @@
                 return function(user){
                     if(($scope.min_rate.length !== 0 && typeof $scope.min_rate !== 'undefined') && ($scope.max_rate.length !== 0 && typeof $scope.max_rate !== 'undefined') ){
                             return (user.rate >= $scope.min_rate && user.rate <= $scope.max_rate);
+                    }
+
+                    else if(($scope.min_rate.length !== 0 && typeof $scope.min_rate !== 'undefined')&&($scope.max_rate.length === 0)){
+                        return (user.rate >= $scope.min_rate);
                     }
                     else{
                         return user;
@@ -233,6 +243,11 @@
                     if(($scope.min_angle.length !== 0 && typeof $scope.min_angle !== 'undefined') && ($scope.max_angle.length !== 0 && typeof $scope.max_angle !== 'undefined') ){
                             return (user.angle >= $scope.min_angle && user.angle <= $scope.max_angle);
                     }
+
+                    else if(($scope.min_angle.length !== 0 && typeof $scope.min_angle !== 'undefined')&&($scope.max_angle.length === 0)){
+                        return (user.angle >= $scope.min_angle);
+                    }
+
                     else{
                         return user;
                     }
@@ -298,8 +313,8 @@
         $(document).ready(function(){
             if(windowvar.isLoggedIn === true){
                 $("#navLogin").text("Logout");
-                $("#logoutLink").on('click',function(){
-                    $(this).attr("href","{{url('/logout')}}");
+                $("#navLogin").on('click',function(){
+                    window.location.href="/logout";
                 });
             }
         });       

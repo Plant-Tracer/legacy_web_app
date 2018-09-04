@@ -1,8 +1,100 @@
 @media only screen and (max-width: 600px){
 
-.databasePage { 
-	display: flex; 
-	flex-direction: column; 
+#filterColumns{
+	display: flex;
+	flex-direction: column;
+}
+
+.buttonColOne{
+	margin-top: 10%;
+}
+
+.filterColumn{
+    display: flex;
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+    }
+
+.filterTypes{
+	display: none;
+}
+
+.filterColumn button{
+    margin: 6px;
+    border-radius: 8px;
+    border-color: #2da633;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.filterBtn{
+    width: 30%;
+    }
+
+.filterBtn.active{
+        background-color: #2da633;
+    }
+
+.secondColumn{
+    display: flex;
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 5%;
+    }
+    
+.secondcolumnRow{
+     display: flex;
+     flex-direction: column;
+     width: 50%;
+    }
+    
+ .secondcolumnRow p {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-family: futura !important;
+        font-size: 2.5vw;
+    }
+    
+    #accessionSearch {
+        margin-left: 3%;
+        margin-right: 2%;
+        margin-top: auto;
+        margin-bottom: auto;
+    }
+
+    #accession {
+        border: 1px solid #2da633;
+        border-radius: 8px;
+        width: 100%;
+        height: 25px;
+        text-align: center;
+    }
+
+    #researcherSearch {
+        margin-left: 5%;
+        margin-top: auto;
+        margin-bottom: auto;
+    }
+
+    #researcher {
+        border: 1px solid #2da633;
+        border-radius: 8px;
+        width: 100%;
+        height: 25px;
+        text-align: center;
+    }
+
+/* BOTTOM HALF OF PAGE */
+
+hr{
+    
+    width: 95%;
+    height: 5px;
+    background: linear-gradient(to right, rgb(53,181,147) , rgb(161,210,68));
+    border: none;
 }
 
 #bottomHalf{
@@ -10,12 +102,12 @@
     font-family: "futura";
     color: #2da633;
     margin-top: 1%;
-    order: 1;
     display: flex; 
 	flex-direction: column; 
-        /*align-items: center;
-        justify-content: center;
-        font-size: 0.90vw;*/
+	align-items: center;
+    justify-content: center;
+    font-size: 2vw;
+    order: 1;
     }
 
 .header{
@@ -43,7 +135,6 @@
     border-style: solid;
     border-radius: 10px;
     border-color: rgb(161,210,68);
-    margin-left: 4%;
     margin-top: 2%;
     order: 1;
 }
@@ -77,10 +168,6 @@
         color: white;
     }
 
-hr{
-	display: none;
-}
-
 #userProfile {
 	border: 0.5px solid #c5ff51;
     width: 50%;
@@ -91,8 +178,26 @@ hr{
 	order: 2;
 }
 
-#filterColumns{
-	order: 2;
+.verticalLine {
+        border-left: 3px solid green;
+        height: 65px;
+        margin-left: 15%;
+}
+
+#author{
+     padding-left: 7%;
+     margin-top: 12%;
+     font-size: 2.5vw;
+}
+
+#expDetails{
+    float: left;
+    color: black;
+    text-align: left;
+}
+
+#greenBarContainer {
+	display: none;
 }
 
 #userAvatar{
@@ -116,303 +221,30 @@ hr{
     display: flex;
     }
 
-/*
-#filterColumns {
-
-        display: flex;
-        font-family: "futura";
-        color: #2da633;
-        margin-top: 1%;
-        align-items: center;
-        justify-content: center;
-        font-size: 0.80vw;
-        order: 2;
-        
-        display: none;
-    }
-    
-    .filterTypes{
-        margin-left: 2%;
-        margin-top: auto;
-        margin-bottom: auto;
-    }
-    
-    .filterColumn{
-        flex-basis: 10%;
-        display: flex;
-        flex-direction: column;
-        margin-left: 2%;
-        margin-top: auto;
-        margin-bottom: auto;
-    }
-    
-    .filterColumn button{
-        margin: 6px;
-        border-radius: 8px;
-        border-color: #2da633;
-    }
-    
-    .filterBtn{
-        width: 100%;
-    }
-
-    .filterBtn.active{
-        background-color: #2da633;
-        /*background-color: blue;
-    }
-
-    .filterBtn:hover,
-    .filterBtn:focus{
-        cursor: pointer;
-    }
-
-    .secondColumn{
-        display: flex;
-        width: 33%;
-        align-items: center;
-        justify-content: center;
-    }
-    
-    .secondcolumnRow{
-        display: flex;
-        flex-direction: column;
-        flex: 1;
-    }
-    
-    .secondcolumnRow p {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-    }
-    
-    #accessionSearch {
-        margin-left: 3%;
-        margin-right: 2%;
-        margin-top: auto;
-        margin-bottom: auto;
-    }
-
-    #accession {
-        border: 1px solid #2da633;
-        border-radius: 8px;
-        width: 100%;
-        height: 25px;
-        text-align: center;
-    }
-
-    #researcherSearch {
-        margin-left: 5%;
-        margin-top: auto;
-        margin-bottom: auto;
-    }
-
-    #researcher {
-        border: 1px solid #2da633;
-        border-radius: 10px;
-        width: 100%;
-        height: 25px;
-        text-align: center;
-    }
-
-    #greenBar {
-        margin-bottom: auto;
-        width: 70%;
-        height: 100%;
-    }
-
-    #greenBarContainer {
-        margin-left: 3%;
-        margin-right: 3%;
-
-    }
-
-    .thirdColumnRow{
-        display: flex;
-        flex-direction: column;
-    }
-    
-    .thirdColumn {
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-        justify-content: center;
-    }
-    
-    .thirdColumn p{
-        padding: 5px;
-    }
-    
-    .thirdColumn div{
-        width: 10%;
-        padding: 10px;
-    }
-    
-    .thirdColInput{
-        border: 1px solid #2da633;
-        border-radius: 8px;
-        width: 100%;
-        height: 25px;
-        margin-left: 2%;
-        margin-right: auto;
-    }
-    
-    #rate{
-        margin-left: 17%;
-    }
-    
-    #angle{
-        margin-left: 10%;
-    }
-    
-    hr{
-    	/*
-        width: 95%;
-        height: 5px;
-        background: linear-gradient(to right, rgb(53,181,147) , rgb(161,210,68));
-        border: none;
-        
-        display: none;
-    }
-
-/* SIDEBAR STYLING 
-    .header{
-        height: 30px;
-        font-family: "futura";
-        border-color: rgb(161,210,68);
-        text-align: center;
-        position: relative;
-        bottom: 0px;
-    }
-    
-    .headerText {
-        padding-top: 2%;
-        color: rgb(161,210,68);
-        font-weight: bold;
-        border-bottom-style: solid;
-        border-bottom-color: rgb(161,210,68);
-        border-bottom-width: thin;
-    }
-    
-    .vertical-menu{
-        width: 250px;
-        height: 350px;
-        border-width: thin;
-        border-style: solid;
-        border-radius: 10px;
-        border-color: rgb(161,210,68);
-        margin-left: 4%;
-        margin-top: 2%;
-        order: 1;
-    }
-    
-    .content {
-        position: absolute;
-        width: 250px;
-        height: 300px;
-        overflow-y: scroll;
-        font-family: "futura";
-    }
-    
-    .vertical-menu a{
-        background-color: white;
-        display: block;
-        padding: 12px;
-        height: 50px;
-        text-decoration: none;
-        border-bottom-width: thin;
-        border-bottom-style: solid;
-        border-bottom-color: rgb(161,210,68);
-        font-size: 15px;
-    }
-    
-    .content a:hover{
-        background-color: #bfe3ab;
-    }
-    
-    .content a.active{
-        background-color: #bfe3ab;
-        color: white;
-    }
-
-/* STYLING for REST of BOTTOM HALF OF PAGE 
-
-    #bottomHalf{
-        display: flex;
-        font-family: "futura";
-        color: #2da633;
-        margin-top: 1%;
-        /*align-items: center;
-        justify-content: center;
-        font-size: 0.90vw;
-    }
-
-    .verticalLine {
-        border-left: 3px solid green;
-        height: 65px;
-        margin-left: 15%;
+.thirdColumnRow {
+	display: none;
 }
 
-    .ct-chart{
-        display: none;
+.ct-chart{
+	order: 3;
+}
 
-    }
-
-    .ct-label{
+.ct-label{
         font-size: 0.60rem;
-    }
-
-    #researcherName{
-        text-decoration: none;
-        border: none;
-    }
-    
-    #userProfile{
-    	/*
-        border: 0.5px solid #c5ff51;
-        width: 15%;
-        height: 20%;
-        text-align: center;
-        padding-right: 12px;
-        margin-top: 2%;
-        
-        display: none;
-    }
-
-    #userAvatar{
-        width:35%;
-        float: left;
-    }
-
-    .profileAvatar{
-        padding:15px;
-    }
-
-    .profileContent{
-        display: flex;
-        flex-direction: column;
-        padding-left: 30px;
-        padding-bottom: 10px;
-    }
-
-    .authorContainer{
-        display: flex;
-    }
-
-    #author{
-        padding-left: 7%;
-    }
-
-    #expDetails{
-        float: left;
-        color: black;
-        text-align: left;
-    }
-
-    .ct-series-a .ct-line {
-      /* Set the colour of this series line 
-      stroke: red;
-      /* Control the thikness of your lines 
-      stroke-width: 5px;
 }
-*/
+
+.ct-series-a .ct-line {
+      /* Set the colour of this series line */
+      stroke: red;
+      /* Control the thikness of your lines */
+      stroke-width: 2px;
+}
+
+.ct-series-a .ct-point {
+      /* Set the colour of this series line */
+      stroke: red;
+      /* Control the thikness of your lines */
+      stroke-width: 3.5px;
+}
+
 }

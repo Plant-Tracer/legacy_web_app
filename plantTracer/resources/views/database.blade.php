@@ -26,7 +26,6 @@
 @include('navbar')
 @include('footervarview')
 
-<div class="databasePage">
 <div ng-app="dataApp" ng-controller="dataCtrl">
 
     <div id="filterColumns">
@@ -139,7 +138,6 @@
     </div>
 
     </div>
-</div>
 </div>
 </body>
     

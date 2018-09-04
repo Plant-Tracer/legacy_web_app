@@ -194,6 +194,7 @@ hr{
     float: left;
     color: black;
     text-align: left;
+    font-size: 3vw;
 }
 
 #greenBarContainer {
@@ -245,6 +246,15 @@ hr{
       stroke: red;
       /* Control the thikness of your lines */
       stroke-width: 3.5px;
+}
+
+#message{
+       background-color: #ff7270;
+       position: absolute;
+       width: 80%;
+       left: 10%;
+       top: 15%;
+       z-index: 999;
 }
 
 }

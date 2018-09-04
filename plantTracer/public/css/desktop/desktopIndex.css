@@ -132,11 +132,12 @@
 
     /* CSS for Error Popup */
     #message{
-        background-color: #ff7270;
-        position: absolute;
-        left: 40%;
-        top: 15%;
-        z-index: 999;
+       background-color: #ff7270;
+       position: absolute;
+       width: 60%;
+       left: 20%;
+       top: 15%;
+       z-index: 999;
     }
 
 }

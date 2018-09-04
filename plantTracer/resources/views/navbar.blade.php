@@ -18,7 +18,7 @@
 
             <li><a href="mailto:brennerbotany@gmail.com?" target="_top">Contact</a></li>
 
-            <li data-toggle="modal" data-target="#loginModal" id="open"><a href="#">Login</a></li>
+            <li data-toggle="modal" data-target="#loginModal" id="open"><a href="#"><span id="navLogin">Login</span></a></li>
 
         </ul>           
     </div>

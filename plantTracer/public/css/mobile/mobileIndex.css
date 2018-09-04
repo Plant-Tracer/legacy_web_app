@@ -93,5 +93,14 @@
         padding-top: 15px;
     }
 
+    #message{
+       background-color: #ff7270;
+       position: absolute;
+       width: 80%;
+       left: 10%;
+       top: 15%;
+       z-index: 999;
+}
+
     
 }

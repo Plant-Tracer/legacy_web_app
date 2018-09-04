@@ -24,12 +24,13 @@
     
     @include('navbar')
     @include('footervarview')
+    @include('loginModal')
     
     <h1 id="literacyHeading">
         Links to the Plant World
     </h1>
     
-    @if (session('alert'))
+@if (session('alert'))
 
 <div id="message" class="alert alert-error">
     <button type="button" class="close" data-dismiss="alert">&times;</button>
@@ -45,7 +46,13 @@
     </h2>
 </body>
     
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+    <script src="http://code.jquery.com/jquery-3.3.1.min.js"
+               integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+               crossorigin="anonymous">
+      </script>
+      <!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
     <script>
         
         $(document).ready(function() {
@@ -55,6 +62,34 @@
         }
     });
 });
+        $(document).ready(function(){
+            $(".menu-wrap a").each(function() {
+                if(this.href == window.location.href) {
+                    $(this).addClass("active");
+                }
+            })
+        });
+
+        $(document).ready(function() {
+            var $toggleButton = $('.toggle-button');
+            var $menuWrap = $('.menu-wrap');
+        
+            $toggleButton.on('click', function() {
+                    $(this).toggleClass('button-open');
+                    $menuWrap.toggleClass('menu-show');
+                });
+            });
+
+        $(document).ready(function(){
+            if(windowvar.isLoggedIn === true){
+              $("#navLogin").text("Logout");
+              $("#navLogin").on('click',function(e){
+                  e.stopPropagation();
+                  window.location.href="/logout";
+                });
+            }
+        }); 
+
         $(document).ready(function() {
         $("h2 a").each(function() {
         if (this.href == window.location.href) {
@@ -71,23 +106,6 @@
             }
         }); 
     
-        $(document).ready(function(){
-            $(".menu-wrap a").each(function() {
-                if(this.href == window.location.href) {
-                    $(this).addClass("active");
-                }
-            })
-        });
-        
-    $(document).ready(function() {
-        var $toggleButton = $('.toggle-button');
-        var $menuWrap = $('.menu-wrap');
-        
-        $toggleButton.on('click', function() {
-            $(this).toggleClass('button-open');
-            $menuWrap.toggleClass('menu-show');
-        });
-    });
     </script>
 
 </html>

@@ -17,6 +17,7 @@
     <link rel="stylesheet" type = "text/css" href="{{url('/css/mobile/mobileNavBar.css')}}">
     <link rel="stylesheet" type = "text/css" href="{{url('/css/desktop/desktopDatabase.css')}}">
     <link rel="stylesheet" type = "text/css" href="{{url('/css/desktop/desktopNavBar.css')}}">
+    <link rel="stylesheet" type = "text/css" href="{{url('/css/mobile/mobileDatabase.css')}}">
         
 </head>
 
@@ -25,6 +26,7 @@
 @include('navbar')
 @include('footervarview')
 
+<div class="databasePage">
 <div ng-app="dataApp" ng-controller="dataCtrl">
 
     <div id="filterColumns">
@@ -122,6 +124,10 @@
     <div id="userProfile">
         <div class="profileAvatar">
             <img id="userAvatar" src="img/Database_Avatar.png" alt="User Avatar">
+            <div class="authorContainer">
+                <div class="verticalLine"></div>
+                <p id="author">Author: <span id="authorDetail">@{{my.researcher}}</span></p>
+            </div>
         </div>
         <div class="profileContent" id="expDetails">
             <p><strong>Experiment Details</strong></p>
@@ -133,6 +139,7 @@
     </div>
 
     </div>
+</div>
 </div>
 </body>
     
@@ -312,12 +319,13 @@
 
         $(document).ready(function(){
             if(windowvar.isLoggedIn === true){
-                $("#navLogin").text("Logout");
-                $("#navLogin").on('click',function(){
-                    window.location.href="/logout";
+              $("#navLogin").text("Logout");
+              $("#navLogin").on('click',function(e){
+                  e.stopPropagation();
+                  window.location.href="/logout";
                 });
             }
-        });       
+        });      
 
         $(document).ready(function() {
             var $toggleButton = $('.toggle-button');
@@ -328,6 +336,7 @@
                 $menuWrap.toggleClass('menu-show');
             });
         });
+
     
     </script>
 

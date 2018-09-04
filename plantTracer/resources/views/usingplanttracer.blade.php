@@ -13,16 +13,31 @@
     <link rel="stylesheet" type = "text/css" href="{{url('/css/mobile/mobileUsingPT.css')}}">
     <link rel="stylesheet" type = "text/css" href="{{url('/css/desktop/desktopNavBar.css')}}">
     <link rel="stylesheet" type = "text/css" href="{{url('/css/desktop/desktopUsingPT.css')}}">
-    
+
+<!-- Boostrap -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-beta.3/css/bootstrap.css" rel="stylesheet">  
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-beta.3/js/bootstrap.min.js"></script> 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.0/jquery.js"></script> 
+
 </head>
 
 <body>
 
     @include('navbar')
     @include('footervarview')
+    @include('loginModal')
+
+@if (session('alert'))
+
+<div id="message" class="alert alert-error">
+    <button type="button" class="close" data-dismiss="alert">&times;</button>
+    <strong>{{ session('alert') }}</strong>
+</div>
+
+@endif
     
 <div class = "desktop">
-<h1>Step 1. <span class="unbold">Grow your specimens</span></h1>
+<h1>Step 1. Grow your specimens</h1>
 
     <div class="bigSubStep">
      <!--<div class="step back1"><img id="backBtn1" class="backBtn" src="Imgs/Back%20Button.png"></div>-->
@@ -52,13 +67,13 @@
         <div id="subStep23" class="step">
             <img id="lapseItPhone" src="img/Step%202/lapseItPhone.png">
             <img class="subStepBubble" src="img/Substep%20Bubble%202.png">
-            <p class="instruction"><u>Download Lapse It</u> from the App Store</p>
+            <p class="instruction"><u class="downloadApp">Download Lapse It</u> from the App Store</p>
         </div>
         
         <div id="subStep21" class="step">
             <img id="PTPhone" src="img/Step%202/PTPhone.png">
             <img class="subStepBubble" id="bubbleOne" src="img/Substep%20Bubble%201.png">
-            <p class="instruction"><u>Download Plant Tracer</u> from the App Store.</p>
+            <p class="instruction"><u class="downloadApp">Download Plant Tracer</u> from the App Store.</p>
         </div>
         
         <div class="nextStep"><img class="nextBtn" src="img/Next%20Button.png"></div>
@@ -291,7 +306,12 @@
 
 </body>
  
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+    <script src="http://code.jquery.com/jquery-3.3.1.min.js"
+               integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+               crossorigin="anonymous">
+      </script>
+      <!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
     <script>
         
         $(document).ready(function() {
@@ -301,22 +321,45 @@
         }
     });
 });
-        $(document).ready(function(){
-            if(windowvar.isLoggedIn === true){
-                $("#navLogin").text("Logout");
-                $("#navLogin").on('click',function(){
-                    window.location.href="/logout";
-                });
-            }
-        }); 
-        
-        $(document).ready(function(){
+
+            $(document).ready(function(){
             $(".menu-wrap a").each(function() {
                 if(this.href == window.location.href) {
                     $(this).addClass("active");
                 }
             })
         });
+
+        $(document).ready(function() {
+            var $toggleButton = $('.toggle-button');
+            var $menuWrap = $('.menu-wrap');
+        
+            $toggleButton.on('click', function() {
+                    $(this).toggleClass('button-open');
+                    $menuWrap.toggleClass('menu-show');
+                });
+            });
+
+        $(document).ready(function(){
+            if(windowvar.isLoggedIn === true){
+              $("#navLogin").text("Logout");
+              $("#navLogin").on('click',function(e){
+                  e.stopPropagation();
+                  window.location.href="/logout";
+                });
+            }
+        }); 
+
+          $(".downloadApp").on('click', function(){
+            var mac = navigator.platform.match(/(Mac|iPhone|iPod|iPad)/i) ? true : false;
+
+                if(mac){
+                    window.location.href = 'https://itunes.apple.com/us/app/plant-tracer-app/id1421866105?mt=8';
+        }
+                else{
+                    window.location.href = 'https://itunes.apple.com/us/app/plant-tracer-app/id1421866105?mt=8';
+        }
+            });
         
 var i = 0; 
 var x = 0;
@@ -450,16 +493,6 @@ function slideshow(n) {
     }
     x[curSlide-1].style.display = "flex"; 
 };
-        
-    $(document).ready(function() {
-        var $toggleButton = $('.toggle-button');
-        var $menuWrap = $('.menu-wrap');
-        
-    $toggleButton.on('click', function() {
-            $(this).toggleClass('button-open');
-            $menuWrap.toggleClass('menu-show');
-        });
-    });
         
     </script>
 

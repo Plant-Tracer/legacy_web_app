@@ -19,9 +19,11 @@
     <link rel="stylesheet" href="{{asset('css/app.css')}}">
     <link rel="stylesheet" type = "text/css" href="{{url('/css/desktop/desktopModal.css')}}">
 
+<!-- Boostrap -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-beta.3/css/bootstrap.css" rel="stylesheet">  
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-beta.3/js/bootstrap.min.js"></script> 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-beta.3/js/bootstrap.min.js"></script> 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.0/jquery.js"></script> 
+
   </head>
   <body>
 
@@ -83,68 +85,24 @@
 </div>
 
 @endif
-<!-- Login Modal -->
-<div class="container">
-    <form class="modal-content-newUser animate" method="post" action="{{url('/index')}}" id="form">
-        @csrf
-  <!-- Modal -->
-  <div class="modal" tabindex="-1" role="dialog" id="loginModal">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="alert alert-danger" style="display:none"></div>
-      <div class="modal-header">
-        
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-        <div class="labels login">
 
-            <div class="loginLabel">
-              <img class="avatar" src="img/leaf.png">
-            </div>
+@include('loginModal')
 
-            <div class="loginLabel">
-              <label for="Email"><strong>Email:</strong></label>
-              <input type="text" class="form-control" name="email" id="email">
-            </div>
-
-            <div class="loginLabel">
-              <label for="Password"><strong>Password:</strong></label>
-              <input type="password" class="form-control" name="password" id="password">
-            </div>
-  
-            <div class="loginLabel loginBtn">
-              <button type="submit" class="btn btn-success">Login</button>
-            </div>
-        
-        </div>
-      </div>
-      <div class="modal-footer" style="background-color:#f1f1f1">
-        <a href="#">Forgot password?</a>
-        </div>
-    </div>
-  </div>
-</div>
-  </form>
-</div>
-
-<img id="homePlant" src="img/Main%20Menu/Main%20Menu_Plant-11.png">
+<img id="homePlant" src="img/Plant-Animation.gif">
 <div id="homepage">
     <div id="homePageRight">
         <img id="homeLogo" src="img/Plant%20Tracer%20Logo.png">
         <p id="description">A method to explore the genetics of plant movement.</p> 
     
+      <div class="optionBtns">
         <button type="button" class="optionBtn" data-toggle="modal" data-target="#registerModal" id="open">New User</button>
 
-        <button type="button" class="optionBtn" data-toggle="modal" data-target="#loginModal" id="open">Login</button>
-        <!--
-        <img id="greenBar" src="Imgs/Green%20Bar.png">
--->
+        <button type="button" class="optionBtn hideLogin" data-toggle="modal" data-target="#loginModal" id="open">Login</button>
+
         <button class="optionBtn" type="button"><a id="seedOrder" href="mailto:brennerbotany@gmail.com?Subject=Order%20for%20Seeds" target="_top">Order Seeds</a></button>
-        
-        <div id="download"><button id="downloadBtn" type="button">Download Coming Soon</button></div>
+      </div>  
+
+        <div id="download"><button id="downloadBtn" type="button">Download</button></div>
 
     </div>
 </div>
@@ -165,15 +123,47 @@
         }
     });
 });
+        $(document).ready(function(){
+            $(".menu-wrap a").each(function() {
+                if(this.href == window.location.href) {
+                    $(this).addClass("active");
+                }
+            })
+        });
+        
+    $(document).ready(function() {
+        var $toggleButton = $('.toggle-button');
+        var $menuWrap = $('.menu-wrap');
+        
+        $toggleButton.on('click', function() {
+            $(this).toggleClass('button-open');
+            $menuWrap.toggleClass('menu-show');
+        });
+    });
 
         $(document).ready(function(){
             if(windowvar.isLoggedIn === true){
-                $("#navLogin").text("Logout");
-                $("#navLogin").on('click',function(){
-                    window.location.href="/logout";
+              $("#navLogin").text("Logout");
+              $(".hideLogin").hide();
+              $("#navLogin").on('click',function(e){
+                  e.stopPropagation();
+                  window.location.href="/logout";
                 });
             }
         }); 
+
+        $(document).ready(function (){
+          $("#downloadBtn").on("click", function(){
+            var mac = navigator.platform.match(/(Mac|iPhone|iPod|iPad)/i) ? true : false;
+
+            if(mac){
+             window.location.href = 'https://itunes.apple.com/us/app/plant-tracer-app/id1421866105?mt=8';
+     }
+          else{
+             window.location.href = 'https://itunes.apple.com/us/app/plant-tracer-app/id1421866105?mt=8';
+     }
+          });
+      });
 
          jQuery(document).ready(function(){
             jQuery('#ajaxSubmit').click(function(e){
@@ -205,10 +195,11 @@
                       console.warn(result);
                       jQuery('.alert-danger').hide();
                       $('#open').hide();
-                      $('#myModal').modal('hide');
                       window.location.href="/database";
                     }
-                  }});
+                  }
+                  
+                });
                });
             });
       </script>

@@ -31,13 +31,13 @@
     }
     
     .navBar a:hover,a:focus {
-        text-shadow: 2px 2px 5px #9dff2e;
-        color: none !important;
+        /*text-shadow: 2px 2px 5px #9dff2e !important;*/
+        text-shadow: 1px 1px 3px #9dff2e;
+        /*color: none !important;*/
     }
 
-    .navbar a.active {
+    .active {
         text-shadow: 2px 2px 5px #9dff2e; 
-        /*background-color: #bfe3ab;*/
     }
 
     #homeBtn {
@@ -116,4 +116,5 @@
         color: white;
         font-size: 70%;
     }
+
 }

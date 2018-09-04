@@ -10,10 +10,16 @@
         <ul class="menu">
             <li><a href="{{url('/index')}}">Home</a></li>
             <li><a href="{{url('/usingplanttracer')}}">Using Plant Tracer</a></li>
-            <!-- <li><a href="database.html">Database</a></li>
-            <li><a href="forums.html">Forums</a></li>
+            <li><a href="{{url('/database')}}">Database</a></li>
+            <!--<li><a href="forums.html">Forums</a></li>
 -->
             <li><a href="{{url('/plantliteracy')}}">Plant Literacy</a></li>
+            <li><a href="{{url('/about')}}">About</a></li>
+
+            <li><a href="mailto:brennerbotany@gmail.com?" target="_top">Contact</a></li>
+
+            <li data-toggle="modal" data-target="#loginModal" id="open"><a href="#">Login</a></li>
+
         </ul>           
     </div>
 </div>

@@ -59,6 +59,18 @@
         cursor: pointer;
     }
 
+    .optionBtns{
+        display: flex;
+        width: 100%;
+        align-items: center;
+        justify-content: center;
+    }
+
+    #downloadBtn:hover,
+    #downloadBtn:focus{
+        cursor: pointer;
+    }
+
     #seedOrder {
         text-decoration: none;
         color: #2da633;
@@ -77,7 +89,7 @@
         font-size: 1.5vw;
     }
 
-    /* CSS for Modal */
+    /* CSS for Login Modal */
     .modal-backdrop.in {
         background: rgba(0, 0, 0, 0.5);
     }   

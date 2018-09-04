@@ -6,8 +6,6 @@ use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\ResetsPasswords;
 use Illuminate\Support\Facades\Password;
 use Illuminate\Http\Request;
-use App\User;
-use DB;
 
 class ForgotPasswordController extends Controller
 {
@@ -34,14 +32,22 @@ class ForgotPasswordController extends Controller
 
         $credentials = $request->only('password', 'password_confirmation');
 
-        $email = $request->get('email');
+        $credentials['email'] = auth()->user()->email;
 
-        $user = User::where('email', $request->get('email'))->first();
+        $user = auth()->user();
+        $user->update(['password' => bcrypt($credentials['password'])]);
+        $user->update(['password_confirmation' => bcrypt($credentials['password_confirmation'])]);
 
-        $user->update(['password' => $request->get('password')]);
+        return $user->save() ? $this->sendResetResponse(Password::PASSWORD_RESET)
+                             : 'Error';
+    }
 
-        return redirect('index');
+        protected function resetPassword($user, $password)
+    {
+        $user->password = bcrypt($password);
 
+        $user->save();
+
+        auth()->guard($this->getGuard())->login($user);
     }
 }
-

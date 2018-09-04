@@ -30,4 +30,11 @@ Route::get('/about', 'AboutController@index');
 //Destroy user session, return homepage
 Route::get('/logout', 'AuthController@destroy');
 
+//Password reset for forgot password
+Route::get('forgotpassword', 'Auth\ForgotPasswordController@getResetView');
+Route::post('forgotpassword', 'Auth\ForgotPasswordController@resetAuthenticated');
+
+
+
+
 

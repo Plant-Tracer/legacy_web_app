@@ -1,7 +1,124 @@
-@media only screen and (min-width: 601px){
-    /* CSS for database.html */
+@media only screen and (max-width: 600px){
+
+.databasePage { 
+	display: flex; 
+	flex-direction: column; 
+}
+
+#bottomHalf{
+	display: flex;
+    font-family: "futura";
+    color: #2da633;
+    margin-top: 1%;
+    order: 1;
+    display: flex; 
+	flex-direction: column; 
+        /*align-items: center;
+        justify-content: center;
+        font-size: 0.90vw;*/
+    }
+
+.header{
+    height: 30px;
+    font-family: "futura";
+    border-color: rgb(161,210,68);
+    text-align: center;
+    position: relative;
+    bottom: 0px;
+    }
+
+.headerText {
+    padding-top: 2%;
+    color: rgb(161,210,68);
+    font-weight: bold;
+    border-bottom-style: solid;
+    border-bottom-color: rgb(161,210,68);
+    border-bottom-width: thin;
+    }
+
+.vertical-menu { 
+	width: 250px;
+    height: 350px;
+    border-width: thin;
+    border-style: solid;
+    border-radius: 10px;
+    border-color: rgb(161,210,68);
+    margin-left: 4%;
+    margin-top: 2%;
+    order: 1;
+}
+
+.content {
+    position: absolute;
+    width: 250px;
+    height: 300px;
+    overflow-y: scroll;
+    font-family: "futura";
+    }
+
+.vertical-menu a{
+     background-color: white;
+     display: block;
+     padding: 12px;
+     height: 50px;
+     text-decoration: none;
+     border-bottom-width: thin;
+     border-bottom-style: solid;
+     border-bottom-color: rgb(161,210,68);
+     font-size: 15px;
+    }
+
+.content a:hover{
+        background-color: #bfe3ab;
+    }
     
-    #filterColumns {
+.content a.active{
+        background-color: #bfe3ab;
+        color: white;
+    }
+
+hr{
+	display: none;
+}
+
+#userProfile {
+	border: 0.5px solid #c5ff51;
+    width: 50%;
+    height: 20%;
+    text-align: center;
+    padding-right: 12px;
+    margin-top: 2%;
+	order: 2;
+}
+
+#filterColumns{
+	order: 2;
+}
+
+#userAvatar{
+    width:35%;
+    float: left;
+   }
+
+.profileAvatar{
+    padding:15px;
+    }
+
+.profileContent{
+    display: flex;
+    flex-direction: column;
+    padding-left: 30px;
+    padding-bottom: 10px;
+
+    }
+
+.authorContainer{
+    display: flex;
+    }
+
+/*
+#filterColumns {
+
         display: flex;
         font-family: "futura";
         color: #2da633;
@@ -9,6 +126,9 @@
         align-items: center;
         justify-content: center;
         font-size: 0.80vw;
+        order: 2;
+        
+        display: none;
     }
     
     .filterTypes{
@@ -38,7 +158,7 @@
 
     .filterBtn.active{
         background-color: #2da633;
-        /*background-color: blue;*/
+        /*background-color: blue;
     }
 
     .filterBtn:hover,
@@ -145,13 +265,16 @@
     }
     
     hr{
+    	/*
         width: 95%;
         height: 5px;
         background: linear-gradient(to right, rgb(53,181,147) , rgb(161,210,68));
         border: none;
+        
+        display: none;
     }
 
-/* SIDEBAR STYLING */
+/* SIDEBAR STYLING 
     .header{
         height: 30px;
         font-family: "futura";
@@ -172,13 +295,14 @@
     
     .vertical-menu{
         width: 250px;
-        height: 400px;
+        height: 350px;
         border-width: thin;
         border-style: solid;
         border-radius: 10px;
         border-color: rgb(161,210,68);
         margin-left: 4%;
         margin-top: 2%;
+        order: 1;
     }
     
     .content {
@@ -198,6 +322,7 @@
         border-bottom-width: thin;
         border-bottom-style: solid;
         border-bottom-color: rgb(161,210,68);
+        font-size: 15px;
     }
     
     .content a:hover{
@@ -209,7 +334,7 @@
         color: white;
     }
 
-/* STYLING for REST of BOTTOM HALF OF PAGE */
+/* STYLING for REST of BOTTOM HALF OF PAGE 
 
     #bottomHalf{
         display: flex;
@@ -217,7 +342,7 @@
         color: #2da633;
         margin-top: 1%;
         /*align-items: center;
-        justify-content: center;*/
+        justify-content: center;
         font-size: 0.90vw;
     }
 
@@ -228,9 +353,7 @@
 }
 
     .ct-chart{
-        justify-content: center;
-        margin-top: 2%;
-        padding-left: 12px;
+        display: none;
 
     }
 
@@ -244,12 +367,15 @@
     }
     
     #userProfile{
+    	/*
         border: 0.5px solid #c5ff51;
         width: 15%;
         height: 20%;
         text-align: center;
         padding-right: 12px;
         margin-top: 2%;
+        
+        display: none;
     }
 
     #userAvatar{
@@ -283,11 +409,10 @@
     }
 
     .ct-series-a .ct-line {
-      /* Set the colour of this series line */
+      /* Set the colour of this series line 
       stroke: red;
-      /* Control the thikness of your lines */
+      /* Control the thikness of your lines 
       stroke-width: 5px;
 }
-
+*/
 }
-

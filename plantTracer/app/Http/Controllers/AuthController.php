@@ -3,11 +3,13 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Http\Validation\validEmail;
 use App\User;
 use Validator;
 use DB;
 use Hash;
 use Auth;
+use JavaScript;
 
 class AuthController extends Controller
 {
@@ -18,6 +20,13 @@ class AuthController extends Controller
      */
     public function index()
     {
+        if(Auth::check()){
+            $isLoggedIn = true;
+
+            JavaScript::put([
+                'isLoggedIn' => $isLoggedIn
+            ]);
+        }
         return view('index');
     }
 
@@ -65,12 +74,12 @@ class AuthController extends Controller
     public function register(Request $request){
 
             $validator = \Validator::make($request->all(), [
-
-            'email' => 'bail|required|unique:users|max:255',
+    
+            'email' => ['bail','required','unique:users','max:255'],
             
             'password'=> 'bail|required|min:6|confirmed',
 
-            'password_confirmation' => 'bail|required|min:6'
+            'password_confirmation' => 'bail|required|min:6',
 
         ]);
 
@@ -95,10 +104,6 @@ class AuthController extends Controller
             return response()->json(['success'=>'Data is successfully added']);
         }
 
-        else{
-
-            return back()->with('alert', 'Have you registered first?');
-            }
     }
 
     /**
@@ -144,6 +149,7 @@ class AuthController extends Controller
     public function destroy()
     {
         auth()->logout();
+
         return redirect('index');
     }
 }

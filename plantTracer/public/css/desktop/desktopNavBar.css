@@ -24,11 +24,6 @@
         text-decoration: none !important;
         font-family: "futura";
     }
-
-    #navLogin:hover,
-    #navLogin:focus{
-        cursor: pointer;
-    }
     
     .navBar a:hover,a:focus {
         /*text-shadow: 2px 2px 5px #9dff2e !important;*/
@@ -102,9 +97,21 @@
         height: 100%;
     }
 
-    #navLogin {
+    #navLoginBtn a:hover,a:focus {
+        /*text-shadow: 2px 2px 5px #9dff2e !important;*/
+        text-shadow: 1px 1px 3px #9dff2e;
+        /*color: none !important;*/
+    }
+
+    .navLogin {
         width: 100%;
         margin-left: 20%;
+    }
+    
+    .navLogin:hover,
+    .navLogin:focus{
+        cursor: pointer;
+        text-shadow: 1px 1px 3px #9dff2e;
     }
 
     #userBtns button {

@@ -18,7 +18,7 @@
 
             <li><a href="mailto:brennerbotany@gmail.com?" target="_top">Contact</a></li>
 
-            <li data-toggle="modal" data-target="#loginModal" id="open"><a href="#"><span id="navLogin">Login</span></a></li>
+            <li data-toggle="modal" data-target="#loginModal" id="open"><a href="#"><span class="navLogin">Login</span></a></li>
 
         </ul>           
     </div>
@@ -41,6 +41,6 @@
     
     <div id="userBtns">
         <div id="contactBtn"><button id="contact" type="button"><a href="mailto:brennerbotany@gmail.com?" target="_top">Contact</a></button></div>
-        <div id="navLoginBtn"><button type="button" id="navLogin" data-toggle="modal" data-target="#loginModal" id="open">Login</button><a href="#"></a></div>
+        <div id="navLoginBtn"><button type="button" class="navLogin" data-toggle="modal" data-target="#loginModal" id="open">Login</button><a href="#"></a></div>
     </div>
 </div>

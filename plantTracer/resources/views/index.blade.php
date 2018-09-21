@@ -64,7 +64,7 @@
         </div>
 
             <div class="iPhone">
-              <img id="iPhone" src="img/iPhone.png" alt="iPhone">
+              <img id="iPhone" src="img/lapse%20it%20phone.jpg" alt="iPhone">
             </div>
       </div>
       
@@ -101,8 +101,10 @@
 
         <button class="optionBtn" type="button"><a id="seedOrder" href="mailto:brennerbotany@gmail.com?Subject=Order%20for%20Seeds" target="_top">Order Seeds</a></button>
       </div>  
-
+      <!--
         <div id="download"><button id="downloadBtn" type="button">Download</button></div>
+      -->
+      <div id="download"><img id="downloadApple" src="img/downloadApple.png"></div>
 
     </div>
 </div>
@@ -143,9 +145,9 @@
 
         $(document).ready(function(){
             if(windowvar.isLoggedIn === true){
-              $("#navLogin").text("Logout");
+              $(".navLogin").text("Logout");
               $(".hideLogin").hide();
-              $("#navLogin").on('click',function(e){
+              $(".navLogin").on('click',function(e){
                   e.stopPropagation();
                   window.location.href="/logout";
                 });
@@ -153,7 +155,7 @@
         }); 
 
         $(document).ready(function (){
-          $("#downloadBtn").on("click", function(){
+          $("#downloadApple").on("click", function(){
             var mac = navigator.platform.match(/(Mac|iPhone|iPod|iPad)/i) ? true : false;
 
             if(mac){

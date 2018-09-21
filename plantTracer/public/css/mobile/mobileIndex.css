@@ -52,10 +52,19 @@
         color: #2da633;
     }
 
-    #download {
+    #downloadApple{
         margin-top: 15px;
+        height: 40%;
     }
     
+    
+    #download {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    /*
     #downloadBtn {
         background-color: #2da633;
         color: white;
@@ -66,6 +75,7 @@
         height: 60px;
         font-family: Futura;
     }
+    */
 
     /* CSS for Login Modal */
 

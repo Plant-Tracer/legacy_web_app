@@ -67,13 +67,13 @@
         <div id="subStep23" class="step">
             <img id="lapseItPhone" src="img/Step%202/lapseItPhone.png">
             <img class="subStepBubble" src="img/Substep%20Bubble%202.png">
-            <p class="instruction"><u class="downloadApp">Download Lapse It</u> from the App Store</p>
+            <p class="instruction">Download Lapse It from the <u class="downloadLapse">App Store</u></p>
         </div>
         
         <div id="subStep21" class="step">
             <img id="PTPhone" src="img/Step%202/PTPhone.png">
             <img class="subStepBubble" id="bubbleOne" src="img/Substep%20Bubble%201.png">
-            <p class="instruction"><u class="downloadApp">Download Plant Tracer</u> from the App Store.</p>
+            <p class="instruction">Download Plant Tracer from the <u class="downloadApp">App Store.</u></p>
         </div>
         
         <div class="nextStep"><img class="nextBtn" src="img/Next%20Button.png"></div>
@@ -123,7 +123,7 @@
     <div class="mobileStep">
         <img id="bottle" src="img/Bottle.png">
         <img class="substepBubble" src="img/Substep%20Bubble%201.png">
-        <p class="description"><strong>3 months prior</strong> to your experiment, <u><a href="mailto:brennerbotany@gmail.com?Subject=Order%20for%20Seeds" target="_top">order seeds</a>.</u> Ensure you have a proper lighting setup: you can <u><a href="">create your own lighting</a></u> or <u><a href="">purchase a lighting arrangement</a>.</u></p>
+        <p class="description"><strong>3 months prior</strong> to your experiment, <u><a href="mailto:brennerbotany@gmail.com?Subject=Order%20for%20Seeds" target="_top">order seeds</a>.</u> Ensure you have a proper lighting setup: you can <u><a href="">create your own lighting</a></u> or <u><a href="https://www.carolina.com/growth-and-light-carts/plant-growth-cart/199716.pr?question=plant+growth+cart" target="_blank">purchase a lighting arrangement</a>.</u></p>
     </div>
     
     <div class="mobileStep">
@@ -132,7 +132,7 @@
             <div><img id="plant" src="img/plant.png"></div>
         </div>
         <img class="substepBubble" src="img/Substep%20Bubble%202.png">
-        <p class="description">Seven weeks before the actual experiment plant seeds. Plant five (replicate) pots for every genotype. Plant 6 seeds per pot. Plant extra wildtype (Columbia) as your control. For details on growing Arabidopsis click <u><a href="">HERE</a></u>.</p>
+        <p class="description">Seven weeks before the actual experiment plant seeds. Plant five (replicate) pots for every genotype. Plant 6 seeds per pot. Plant extra wildtype (Columbia) as your control. For details on growing Arabidopsis click <u><a href="https://abrc.osu.edu/seed-handling" target="_blank">HERE</a></u>.</p>
     </div>
     
     <div class="mobileStep">
@@ -144,13 +144,13 @@
     <div class="mobileStep">
         <img class="PTPhones" src="img/lapse%20it%20phone.jpg">
         <div id="step2Bubble1"><img class="substepBubble" src="img/Substep%20Bubble%201.png"></div>
-        <p class="description"><u>Download Lapse It</u> from the App Store.</p>
+        <p class="description">Download Lapse It from the <u class="downloadLapse">App Store.</u></p>
     </div>
     
     <div class="mobileStep">
         <img class="PTPhones" src="img/plant%20tracer%20phone.jpg">
         <img id="step2Bubble1" class="substepBubble" src="img/Substep%20Bubble%202.png">
-        <p class="description"><u>Download Plant Tracer</u> from the App Store.</p>
+        <p class="description">Download Plant Tracer <u class="downloadApp">from the App Store.</u></p>
     </div>
     
     <div class="mobileStep">
@@ -234,7 +234,7 @@
     <div class="mobileStep">
         <img class="mobileImg6" src="img/Step6Img2.png">
         <div><img class="substepBubble" src="img/Substep%20Bubble%202.png"></div>
-        <p class="description"> <strong>Open Lapse It Settings</strong>
+        <p class="description"> <strong>Open Lapse It Settings</strong><br>
         a. Change the Frame Interval to <strong>2</strong><br>
         b. Change the <em>Frames per second</em> to <strong>20</strong><br>
         c. Use the highest resolution available<br>
@@ -245,7 +245,7 @@
     <div class="mobileStep">
         <img class="mobileImg6" src="img/Step6Img3.png">
         <div><img class="substepBubble" src="img/Substep%20Bubble%203.png"></div>
-        <p class="description"> Move as close to the sibject material as possible (flowering stems, rler) so that it fills the screen. Open Lapse It, click on <em>New Capture</em>. Hit the red <em>Capture</em> button to begin recording. Leave the device recording for approximately 2 hours.</p>
+        <p class="description"> Move as close to the subject material as possible (flowering stems, ruler) so that it fills the screen. Open Lapse It, click on <em>New Capture</em>. Hit the red <em>Capture</em> button to begin recording. Leave the device recording for approximately 2 hours.</p>
     </div>
     
     <div class="mobileStep">
@@ -342,8 +342,8 @@
 
         $(document).ready(function(){
             if(windowvar.isLoggedIn === true){
-              $("#navLogin").text("Logout");
-              $("#navLogin").on('click',function(e){
+              $(".navLogin").text("Logout");
+              $(".navLogin").on('click',function(e){
                   e.stopPropagation();
                   window.location.href="/logout";
                 });
@@ -360,7 +360,19 @@
                     window.location.href = 'https://itunes.apple.com/us/app/plant-tracer-app/id1421866105?mt=8';
         }
             });
-        
+
+
+          $(".downloadLapse").on('click', function(){
+            var mac = navigator.platform.match(/(Mac|iPhone|iPod|iPad)/i) ? true : false;
+
+                if(mac){
+                    window.location.href = 'https://itunes.apple.com/app/id539108382';
+        }
+                else{
+                    window.location.href = 'https://itunes.apple.com/app/id539108382';
+        }
+            });
+
 var i = 0; 
 var x = 0;
         
@@ -383,18 +395,20 @@ if(i==0){
         }
         
         if(window.innerWidth < 601){
-            i++; //i=1
+            i++; 
+            console.log("Slide number: "+ i);
             if(i!=0){
                 $(".backBtn").show();
 ;            };
             
-            var z = mobileHeadlines[x][1]; //3
+            var z = mobileHeadlines[x][1];
             
             if(i==z){
                 $("#mobileHeading").text(headlines[x+1]);
                  $("#mobileBubblesImg").attr("src",greenBubbles[x+1]);
                 if(x!=6){
                     x++;
+                    console.log("Headline number: "+x);
                 }
                 
             }
@@ -425,14 +439,17 @@ if(i==0){
             if(i==0){
                 $(".backBtn").hide();
                 $(".nextBtn").show();
-;            };
-            var z = mobileHeadlines[x-1][1]; 
-            
-            var headline = z-1;
+                ;            
+            };
+
+            if(x!=0){
+                var z = mobileHeadlines[x-1][1]; 
+                var headline = z-1;
+            }
             
             if(i==headline){
                 $("#mobileHeading").text(headlines[x-1]);
-            $("#mobileBubblesImg").attr("src",greenBubbles[x-1]);
+                $("#mobileBubblesImg").attr("src",greenBubbles[x-1]);
                 if(x!=1){
                     x--;
                 }
@@ -493,6 +510,7 @@ function slideshow(n) {
     }
     x[curSlide-1].style.display = "flex"; 
 };
+
         
     </script>
 

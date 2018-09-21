@@ -66,16 +66,33 @@
         justify-content: center;
     }
 
+    #downloadApple{
+        margin-top: 15px;
+        width: 30%;
+    }
+
+    #downloadApple:hover,
+    #downloadApple:focus{
+        cursor: pointer;
+    }
+
+    #download{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    /*
     #downloadBtn:hover,
     #downloadBtn:focus{
         cursor: pointer;
     }
-
+    */
     #seedOrder {
         text-decoration: none;
         color: #2da633;
     }
-
+    /*
     #downloadBtn {
         background-color: #2da633;
         color: white;
@@ -88,6 +105,7 @@
         margin-right: 1.5%;
         font-size: 1.5vw;
     }
+    */
 
     /* CSS for Login Modal */
     .modal-backdrop.in {

@@ -89,8 +89,8 @@
 
         $(document).ready(function(){
             if(windowvar.isLoggedIn === true){
-              $("#navLogin").text("Logout");
-              $("#navLogin").on('click',function(e){
+              $(".navLogin").text("Logout");
+              $(".navLogin").on('click',function(e){
                   e.stopPropagation();
                   window.location.href="/logout";
                 });
@@ -110,15 +110,6 @@
      }
           });
       });
-
-        $(document).ready(function(){
-            if(windowvar.isLoggedIn === true){
-                $("#navLogin").text("Logout");
-                $("#navLogin").on('click',function(){
-                    window.location.href="/logout";
-                });
-            }
-        }); 
 
 </script>
 </html>

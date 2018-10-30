@@ -76,11 +76,29 @@
         cursor: pointer;
     }
 
+    #matLab:hover,
+    #matLab:focus{
+        cursor: pointer;
+    }
+
+    #matLab{
+        margin-top: 15px;
+        height: 25%;
+        margin-left: 10px;
+    }
+
+    #downloadIcons{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+/*
     #download{
         display: flex;
         align-items: center;
         justify-content: center;
     }
+    */
 
     /*
     #downloadBtn:hover,

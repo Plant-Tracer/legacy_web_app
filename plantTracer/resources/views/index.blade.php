@@ -104,7 +104,11 @@
       <!--
         <div id="download"><button id="downloadBtn" type="button">Download</button></div>
       -->
-      <div id="download"><img id="downloadApple" src="img/downloadApple.png"></div>
+
+    <div id="downloadIcons">
+      <img id="downloadApple" src="img/downloadApple.png">
+      <img id="matLab" src="img/matLab.png">
+    </div>
 
     </div>
 </div>

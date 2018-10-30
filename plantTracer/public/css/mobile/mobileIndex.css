@@ -58,6 +58,11 @@
         width: 45%;
     }
     
+    #matLab{
+        margin-top: 10px;
+        width: 20%;
+        padding-bottom: 5px;
+    }
     
     #downloadIcons {
         display: flex;

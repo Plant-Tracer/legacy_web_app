@@ -23,6 +23,31 @@
     .bigSubStep {
         display: flex;
     }
+
+    /* CSS FOR STEP 3 */
+
+    .stepContainer{
+        display: flex;
+        flex-direction: column;
+    }
+
+    .stepRow{
+        display: flex;
+    }
+
+    .oneStep{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .slideImg3{
+        width: 70%;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    /* END OF CSS FOR STEP 3 */
     
     .bigSubStep p {
         font-family: "futura" !important;
@@ -33,6 +58,11 @@
 
     .downloadApp:hover,
     .downloadApp:focus{
+        cursor: pointer;
+    }
+
+    .downloadLapse:hover,
+    .downloadLapse:focus{
         cursor: pointer;
     }
 
@@ -74,12 +104,12 @@
         margin-top: 18.88px;
     }
     
-    #substepBubble1 {
+    .substepBubble1 {
         width: 20%;
         display: block;
     }
 
-    #substepBubble2 {
+    .substepBubble2 {
         width: 18%;
         display: block;
     }

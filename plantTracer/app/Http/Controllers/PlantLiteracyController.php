@@ -18,6 +18,6 @@ class PlantLiteracyController extends Controller
     			'isLoggedIn' => $isLoggedIn
     		]);
     	}
-    	return view('plantLiteracy');
+    	return view('plantliteracy');
     }
 }

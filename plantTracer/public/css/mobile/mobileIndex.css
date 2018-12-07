@@ -11,6 +11,13 @@
     #newUser {
         display: none;
     }
+
+    #nsf{
+        width: 20%;
+        display: block;
+        margin: auto;
+        margin-top: 70px;
+    }
     
     #homeLogo {
         width: 80%;
@@ -51,7 +58,6 @@
         text-decoration: none;
         color: #2da633;
     }
-
     #downloadApple{
         margin-top: 15px;
         height: 40%;
@@ -59,9 +65,14 @@
     }
     
     #matLab{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    #matLabImg{
         margin-top: 10px;
-        width: 20%;
-        padding-bottom: 5px;
+        width: 50%;
     }
     
     #downloadIcons {

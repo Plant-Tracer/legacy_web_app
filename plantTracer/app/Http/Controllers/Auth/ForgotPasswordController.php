@@ -36,11 +36,20 @@ class ForgotPasswordController extends Controller
 
         $email = $request->get('email');
 
+        if(DB::table('users')->where('email','=',request(['email']))->exists()){
+
         $user = User::where('email', $request->get('email'))->first();
 
         $user->update(['password' => $request->get('password')]);
 
         return redirect('index');
+
+        }
+
+        else{
+
+            return back()->with('alert', 'This email does not exist in our records');
+        }
 
     }
 }

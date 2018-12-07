@@ -44,12 +44,12 @@
         <div class="backStep"><img class="backBtn" src="img/Back%20Button.png"></div>
         <div id="subStepOne" class="step">
             <img id="bottle" src="img/Step%201/bottle.png">
-            <img id="substepBubble1" src="img/Substep%20Bubble%201.png">
+            <img class="substepBubble1" src="img/Substep%20Bubble%201.png">
             <p class="instruction"><strong>3 months prior</strong> to your experiment, <u><a href="mailto:brennerbotany@gmail.com?Subject=Order%20for%20Seeds" target="_top">order seeds</a>.</u> Ensure you have a proper lighting setup: you can <u><a href="">create your own lighting</a></u> or <u><a href="https://www.carolina.com/growth-and-light-carts/plant-growth-cart/199716.pr?question=plant+growth+cart" target="_blank">purchase a lighting arrangement</a>.</u></p>
         </div>
         <div id="subStepTwo" class="step">
             <img id="potter" src="img/Step%201/potter.png">
-            <img id="substepBubble2" src="img/Substep%20Bubble%202.png">
+            <img class="substepBubble2" src="img/Substep%20Bubble%202.png">
             <p class="instruction">Seven weeks before the actual experiment plant seeds. Plant five (replicate) pots for every genotype. Plant 6 seeds per pot. Plant extra wildtype (Columbia) as your control. For details on growing Arabidopsis click <u><a href="https://abrc.osu.edu/seed-handling" target="_blank">HERE</a></u>.</p>
         </div>
         <div id="subStepThree" class="step">
@@ -66,14 +66,14 @@
         
         <div id="subStep23" class="step">
             <img id="lapseItPhone" src="img/Step%202/lapseItPhone.png">
-            <img class="subStepBubble" src="img/Substep%20Bubble%202.png">
-            <p class="instruction">Download Lapse It from the <u class="downloadLapse">App Store</u></p>
+            <img class="subStepBubble" src="img/Substep%20Bubble%201.png">
+            <p class="instruction">Download Lapse It from the <u class="downloadLapse">App Store.</u></p>
         </div>
         
         <div id="subStep21" class="step">
             <img id="PTPhone" src="img/Step%202/PTPhone.png">
-            <img class="subStepBubble" id="bubbleOne" src="img/Substep%20Bubble%201.png">
-            <p class="instruction">Download Plant Tracer from the <u class="downloadApp">App Store.</u></p>
+            <img class="subStepBubble" id="bubbleOne" src="img/Substep%20Bubble%202.png">
+            <p class="instruction">Download Plant Tracer from the <u class="downloadApp">App Store</u>.<a href="https://www.youtube.com/channel/UCBqQIjHgrNiNKvz6vxxtpWw?view_as=subscriber"> Here is a video</a> that explains how to use the app.</p>
         </div>
         
         <div class="nextStep"><img class="nextBtn" src="img/Next%20Button.png"></div>
@@ -81,7 +81,36 @@
     
     <div class="bigSubStep">
         <div class="backStep"><img class="backBtn" src="img/Back%20Button.png"></div>
-        <img class="slideImg step" src="img/Step3.png">
+        <div class="stepContainer">
+            <img class="slideImg3" src="img/Step3Pic.png">
+            <div class="stepRow">
+                <div class="oneStep">
+                    <img class="substepBubble1" src="img/Substep%20Bubble%201.png">
+                    <p class="instruction"><strong>Backdrop </strong> - A dull, black background ensures software can track movement</p>
+                </div>
+                <div class="oneStep">
+                    <img class="substepBubble2" src="img/Substep%20Bubble%202.png">
+                    <p class="instruction"><strong>Cultivated Mutant and Wild Type Plants </strong>- You will need both genotypes of the Arabidopsis thaliana in order to measure them in Plant Tracer.</p>
+                </div>
+                <div class="oneStep">
+                    <img class="subStepBubble" src="img/Substep%20Bubble%203.png">
+                    <p class="instruction"><strong>Plant Labels </strong> - These will be used to identify plant accession number.</p>
+                </div>
+                <div class="oneStep">
+                    <img class="subStepBubble" src="img/Substep%20Bubble%204.png">
+                    <p class="instruction"><strong>Miniature Ruler </strong> - Rulers can be printed <a>HERE</a>. Print and cut out the ruler, then tape it to a straightened paperclip.</p>
+                </div>
+                <div class="oneStep">
+                    <img class="subStepBubble" src="img/Substep%20Bubble%205.png">
+                    <p class="instruction"><strong>Phone Stand </strong> - You can use Binder Clips to hold your phone in place while recording your experiment.</p>
+                </div>
+                <div class="oneStep">
+                    <img class="subStepBubble" src="img/Substep%20Bubble%206.png">
+                    <p class="instruction"><strong>Phone and Charger </strong> - You will need to use a charged smartphone or tablet with the free Lapse It app in order to record and upload your video to Plant Tracer.</p>
+                </div>
+            </div>
+        </div>
+
         <div class="nextStep"><img class="nextBtn" src="img/Next%20Button.png"></div>
     </div>
     
@@ -150,7 +179,7 @@
     <div class="mobileStep">
         <img class="PTPhones" src="img/plant%20tracer%20phone.jpg">
         <img id="step2Bubble1" class="substepBubble" src="img/Substep%20Bubble%202.png">
-        <p class="description">Download Plant Tracer <u class="downloadApp">from the App Store.</u></p>
+        <p class="description">Download Plant Tracer <u class="downloadApp">from the App Store.</u><a href="https://www.youtube.com/channel/UCBqQIjHgrNiNKvz6vxxtpWw?view_as=subscriber"> Here is a video</a> that explains how to use the app.</p>
     </div>
     
     <div class="mobileStep">

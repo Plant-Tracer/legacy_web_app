@@ -88,8 +88,8 @@
 
 @include('loginModal')
 
-<img id="homePlant" src="img/Plant-Animation.gif">
 <div id="homepage">
+  <img id="homePlant" src="img/Plant-Animation.gif">
     <div id="homePageRight">
         <img id="homeLogo" src="img/Plant%20Tracer%20Logo.png">
         <p id="description">A method to explore the genetics of plant movement.</p> 
@@ -104,14 +104,14 @@
       <!--
         <div id="download"><button id="downloadBtn" type="button">Download</button></div>
       -->
-
     <div id="downloadIcons">
       <img id="downloadApple" src="img/downloadApple.png">
-      <img id="matLab" src="img/matLab.png">
+      <a id="matLab" href="https://drive.google.com/file/d/1dKAfnz5z_q8wvyb3jt6MtOusrDjdkgV3/view" target="_blank"><img id="matLabImg" src="img/matLab.png"></a>
     </div>
-
     </div>
+    <img id="nsf" src="img/nsf.png">
 </div>
+
 </body>
 </html>
 

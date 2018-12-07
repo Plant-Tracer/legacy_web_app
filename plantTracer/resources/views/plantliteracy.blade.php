@@ -43,6 +43,22 @@
         <a class="literacyLink" href="https://botany.org/" target="_blank">Botanical Society of America</a>
         <a class="literacyLink" href="https://plantae.org/" target="_blank">Plantae</a>
         <a class="literacyLink" href="http://plantsinmotion.bio.indiana.edu/index.html" target="_blank">Plants in Motion</a>
+        <a class="literacyLink" href="https://blog.oup.com/2015/08/studying-botany-plants-college/" target="_blank">Studying Botany in College</a>
+        <a class="literacyLink" href="http://www.mbgnet.net/bioplants/main.html" target="_blank">Biology of Plants</a>
+        <a class="literacyLink" href="http://www.metropolitannaturalhistory.org/taxon-of-the-month/" target="_blank">Taxon of the Month</a>
+        <a class="literacyLink" href="https://www.seedyourfuture.org/" target="_blank">Seed your Future</a>
+        <a class="literacyLink" href="https://plantingscience.org/mentorjoin/mentorjoinmain#howitworks" target="_blank">Planting Science</a>
+        <a class="literacyLink" href="https://www.bgci.org/usa/PlantConservationDay" target="_blank">Plant Conservation Day</a>
+    </h2>
+
+    <h1 id="literacyHeading">
+        Botanical Gardens
+    </h1>
+
+    <h2>
+        <a class="literacyLink" href="https://www.usbg.gov/about-us" target="_blank">United States Botanical Garden</a>
+        <a class="literacyLink" href="https://www.nybg.org/" target="_blank">New York Botanical Garden</a>
+        <a class="literacyLink" href="https://www.bbg.org/" target="_blank">Brooklyn Botanical Garden</a>
     </h2>
 </body>
     

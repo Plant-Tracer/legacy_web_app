@@ -31,8 +31,10 @@ Route::get('/about', 'AboutController@index');
 Route::get('/logout', 'AuthController@destroy');
 
 //Password reset for forgot password
-Route::get('forgotpassword', 'Auth\ForgotPasswordController@getResetView');
+Route::get('forgotpassword', 'Auth\ForgotPasswordController@getForgotView');
 Route::post('forgotpassword', 'Auth\ForgotPasswordController@resetAuthenticated');
+
+Route::get('/passwordreset','Auth\ForgotPasswordController@getResetView');
 
 
 

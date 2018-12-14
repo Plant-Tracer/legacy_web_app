@@ -20,6 +20,16 @@
     <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Email" name="email">
   </div>
   
+  <div class="form-group">
+    <label for="formGroupExampleInput"><strong>New Password:</strong></label>
+    <input type="password" class="form-control" id="formGroupExampleInput" placeholder="New Password" name="password">
+  </div>
+
+  <div class="form-group">
+    <label for="formGroupExampleInput"><strong>Confirm Password:</strong></label>
+    <input type="password" class="form-control" id="formGroupExampleInput" placeholder="Confirm Password" name="password_confirmation">
+  </div>
+	
   <div class="resetBtn">
   	<button type="submit" class="btn btn-primary">Send Password Reset Email</button>
   </div>

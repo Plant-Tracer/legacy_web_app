@@ -23,6 +23,7 @@ class ForgotPasswordController extends Controller
 
     public function getResetView()
     {
+
         return view('forgotpassword');
     }
 

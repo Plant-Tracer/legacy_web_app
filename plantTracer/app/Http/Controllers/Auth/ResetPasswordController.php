@@ -32,7 +32,7 @@ class ResetPasswordController extends Controller
 
     public function getResetAuthenticatedView(Request $request)
     {
-        return view('forgotPassword');
+        return view('passwordreset');
     }
 
         public function resetAuthenticated(Request $request)

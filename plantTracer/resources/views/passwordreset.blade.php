@@ -13,7 +13,7 @@
 	Reset Password
 </h1>
 <div id="reset">
-<form method="post" action="{{url('/forgotpassword')}}">
+<form method="post" action="{{url('/passwordreset')}}">
 	@csrf
   <div class="form-group">
     <label for="formGroupExampleInput"><strong>Email:</strong></label>
@@ -31,7 +31,7 @@
   </div>
 	
   <div class="resetBtn">
-  	<button type="submit" class="btn btn-primary">Send Password Reset Email</button>
+  	<button type="submit" class="btn btn-primary">Reset Password</button>
   </div>
 </form>
 </div>

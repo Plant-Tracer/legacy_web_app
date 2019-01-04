@@ -29,16 +29,31 @@ class ForgotPasswordController extends Controller
         return view('forgotpassword');
     }
 
-        public function getResetView()
-    {
+    public function getResetView(){
         return view('passwordreset');
+    }
+
+        public function resetPassword(Request $request)
+    {
+        $email = $request->get('email');
+        if(DB::table('users')->where('email','=',request(['email']))->exists()){
+
+            $passwordconf = $request->get('password_confirmation');
+
+            $user = User::where('email', $request->get('email'))->first();
+            
+            $user->update(['password' => $request->get('password')]);
+
+            $user->update(['password_confirmation' => bcrypt($passwordconf)]);
+
+            return redirect('index')->with('alert','Your password has successfully been updated');
+
+        }
+    
     }
 
     public function resetAuthenticated(Request $request)
     {
-        //$this->validate($request, ['password' => 'required|confirmed|min:6']);
-
-        //$credentials = $request->only('password', 'password_confirmation');
 
         $email = $request->get('email');
 
@@ -48,10 +63,7 @@ class ForgotPasswordController extends Controller
 
             \Mail::to($user)->send(new PasswordReset);
 
-
-        //$user->update(['password' => $request->get('password')]);
-
-        return redirect('index');
+        return redirect('index')->with('alert', 'An email has been sent to you with instructions on how to reset your password');
 
         }
 

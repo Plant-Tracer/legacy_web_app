@@ -85,27 +85,27 @@
             <img class="slideImg3" src="img/Step3Pic.png">
             <div class="stepRow">
                 <div class="oneStep">
-                    <img class="substepBubble1" src="img/Substep%20Bubble%201.png">
+                    <img class="bubble" src="img/Substep%20Bubble%201.png">
                     <p class="instruction"><strong>Backdrop </strong> - A dull, black background ensures software can track movement</p>
                 </div>
                 <div class="oneStep">
-                    <img class="substepBubble2" src="img/Substep%20Bubble%202.png">
+                    <img class="bubble" src="img/Substep%20Bubble%202.png">
                     <p class="instruction"><strong>Cultivated Mutant and Wild Type Plants </strong>- You will need both genotypes of the Arabidopsis thaliana in order to measure them in Plant Tracer.</p>
                 </div>
                 <div class="oneStep">
-                    <img class="subStepBubble" src="img/Substep%20Bubble%203.png">
+                    <img class="bubble" src="img/Substep%20Bubble%203.png">
                     <p class="instruction"><strong>Plant Labels </strong> - These will be used to identify plant accession number.</p>
                 </div>
                 <div class="oneStep">
-                    <img class="subStepBubble" src="img/Substep%20Bubble%204.png">
-                    <p class="instruction"><strong>Miniature Ruler </strong> - Rulers can be printed <a>HERE</a>. Print and cut out the ruler, then tape it to a straightened paperclip.</p>
+                    <img class="bubble" src="img/Substep%20Bubble%204.png">
+                    <p class="instruction"><strong>Miniature Ruler </strong> - Rulers can be printed <a href="img/Ruler%20template.pdf" download>HERE</a>. Print and cut out the ruler, then tape it to a straightened paperclip.</p>
                 </div>
                 <div class="oneStep">
-                    <img class="subStepBubble" src="img/Substep%20Bubble%205.png">
+                    <img class="bubble" src="img/Substep%20Bubble%205.png">
                     <p class="instruction"><strong>Phone Stand </strong> - You can use Binder Clips to hold your phone in place while recording your experiment.</p>
                 </div>
                 <div class="oneStep">
-                    <img class="subStepBubble" src="img/Substep%20Bubble%206.png">
+                    <img class="bubble" src="img/Substep%20Bubble%206.png">
                     <p class="instruction"><strong>Phone and Charger </strong> - You will need to use a charged smartphone or tablet with the free Lapse It app in order to record and upload your video to Plant Tracer.</p>
                 </div>
             </div>
@@ -203,7 +203,7 @@
     <div class="mobileStep">
         <img id="Step3Img4" class="mobileImg" src="img/mobilestep3Img4.png">
         <div><img class="substepBubble" src="img/Substep%20Bubble%204.png"></div>
-        <p class="description"><strong>Miniature Ruler </strong> - Rulers can be printed <a>HERE</a>. Print and cut out the ruler, then tape it to a straightened paperclip.</p>
+        <p class="description"><strong>Miniature Ruler </strong> - Rulers can be printed <a href="img/Ruler%template.pdf" download>HERE</a>. Print and cut out the ruler, then tape it to a straightened paperclip.</p>
     </div>
     
     <div class="mobileStep">

@@ -12,6 +12,7 @@
 */
 
 Route::resource('/index','AuthController')->except(['create']);
+Route::resource('/','AuthController')->except(['create']);
 
 Route::get('/database', 'DatabaseController@index');
 
@@ -35,6 +36,7 @@ Route::get('forgotpassword', 'Auth\ForgotPasswordController@getForgotView');
 Route::post('forgotpassword', 'Auth\ForgotPasswordController@resetAuthenticated');
 
 Route::get('/passwordreset','Auth\ForgotPasswordController@getResetView');
+Route::post('/passwordreset','Auth\ForgotPasswordController@resetPassword');
 
 
 

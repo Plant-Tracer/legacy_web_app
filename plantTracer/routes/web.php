@@ -12,6 +12,34 @@
 */
 
 Route::resource('/index','AuthController')->except(['create']);
+Route::resource('/','IndexController');
+
+Route::get('/database', 'DatabaseController@index');
+
+//Return using plant tracer view
+Route::get('/usingplanttracer', 'UsingPTController@index');
+
+//Return plant literacy view
+Route::get('/plantliteracy','PlantLiteracyController@index');
+
+//Return forums views
+Route::get('/forums','ForumsController@index');
+
+//Return about view
+Route::get('/about', 'AboutController@index');
+
+//Destroy user session, return homepage
+Route::get('/logout', 'AuthController@destroy');
+
+//Password reset for forgot password
+Route::get('forgotpassword', 'Auth\ForgotPasswordController@getForgotView');
+Route::post('forgotpassword', 'Auth\ForgotPasswordController@resetAuthenticated');
+
+Route::get('/passwordreset','Auth\ForgotPasswordController@getResetView');
+Route::post('/passwordreset','Auth\ForgotPasswordController@resetPassword');
+
+/*
+Route::resource('/index','AuthController')->except(['create']);
 Route::resource('/','AuthController')->except(['create']);
 
 Route::get('/database', 'DatabaseController@index');
@@ -39,6 +67,6 @@ Route::get('/passwordreset','Auth\ForgotPasswordController@getResetView');
 Route::post('/passwordreset','Auth\ForgotPasswordController@resetPassword');
 
 
-
+*/
 
 

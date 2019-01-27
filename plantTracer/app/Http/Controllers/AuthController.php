@@ -27,7 +27,7 @@ class AuthController extends Controller
                 'isLoggedIn' => $isLoggedIn
             ]);
         }
-        return view('index');
+        return view('/index');
     }
 
     /**
@@ -150,6 +150,6 @@ class AuthController extends Controller
     {
         auth()->logout();
 
-        return redirect('index');
+        return redirect('/index');
     }
 }

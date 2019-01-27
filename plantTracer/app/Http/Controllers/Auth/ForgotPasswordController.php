@@ -46,7 +46,7 @@ class ForgotPasswordController extends Controller
 
             $user->update(['password_confirmation' => bcrypt($passwordconf)]);
 
-            return redirect('index')->with('alert','Your password has successfully been updated');
+            return redirect('/index')->with('alert','Your password has successfully been updated');
 
         }
     
@@ -63,7 +63,7 @@ class ForgotPasswordController extends Controller
 
             \Mail::to($user)->send(new PasswordReset);
 
-        return redirect('index')->with('alert', 'An email has been sent to you with instructions on how to reset your password');
+        return redirect('/index')->with('alert', 'An email has been sent to you with instructions on how to reset your password');
 
         }
 

@@ -51,6 +51,8 @@ class IndexController extends Controller
 
         public function register(Request $request){
 
+            $hasApp = request('isDownloaded');
+
             $validator = \Validator::make($request->all(), [
     
             'email' => ['bail','required','unique:users','max:255'],
@@ -67,19 +69,35 @@ class IndexController extends Controller
             return response()->json(['errors'=>$validator->errors()->all()]);
         }
 
-        if(DB::table('plant_tracing')->where('researcher','=',request(['email']))->exists()){
+        else{
 
-                $passwordconf = Hash::make($request->get('password_confirmation'));
+            if(DB::table('plant_tracing')->where('researcher','=',request(['email']))->exists()){
 
-                $newUser = new User();
-                $newUser->email=$request->get('email');
-                $newUser->password=$request->get('password');
-                $newUser->password_confirmation=$passwordconf;
-                $newUser->save();
+            /*
+            if($hasApp == 'noApp'){
+                console.log("No App!");
+                DB::table('users')->insert(['downloaded_app'=>'false']);
+            }
 
-                auth()->login($newUser);
+            else{
+                DB::table('users')->insert(['downloaded_app'=>'true']);
+            }
+            */
+
+            $passwordconf = Hash::make($request->get('password_confirmation'));
+
+            $newUser = new User();
+            $newUser->email=$request->get('email');
+            $newUser->password=$request->get('password');
+            $newUser->password_confirmation=$passwordconf;
+            $newUser->save();
+
+            auth()->login($newUser);
 
             return response()->json(['success'=>'Data is successfully added']);
+            }
+
+
         }
 
     }

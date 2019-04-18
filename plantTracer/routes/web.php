@@ -17,16 +17,16 @@ Route::resource('/','IndexController');
 Route::get('/database', 'DatabaseController@index');
 
 //Return using plant tracer view
-Route::get('/usingplanttracer', 'UsingPTController@index');
+Route::get('/usingplanttracer{extension}', 'UsingPTController@index')->where('extension', '(?:.html)?');
 
 //Return plant literacy view
-Route::get('/plantliteracy','PlantLiteracyController@index');
+Route::get('/plantliteracy{extension}','PlantLiteracyController@index')->where('extension', '(?:.html)?');
 
 //Return forums views
 Route::get('/forums','ForumsController@index');
 
 //Return about view
-Route::get('/about', 'AboutController@index');
+Route::get('/about{extension}', 'AboutController@index')->where('extension', '(?:.html)?');
 
 //Destroy user session, return homepage
 Route::get('/logout', 'AuthController@destroy');

@@ -60,6 +60,9 @@
        
             <label for="Password"><strong>Confirm Password:</strong></label>
             <input type="password" class="form-control" name="password_confirmation" id="passwordconf">
+
+            <input type="radio" name="isDownloaded" value="yesApp"> I have downloaded the app<br>
+            <input type="radio" name="isDownloaded" value="noApp"> I have not downloaded the app<br>
         
         </div>
 

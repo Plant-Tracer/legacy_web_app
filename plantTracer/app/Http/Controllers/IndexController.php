@@ -13,15 +13,15 @@ class IndexController extends Controller
 
     public function index(){
 
-    	if(Auth::check()){
-    		$isLoggedIn = true;
+        if(Auth::check()){
+            $isLoggedIn = true;
 
-    		JavaScript::put([
-    			'isLoggedIn' => $isLoggedIn
-    		]);
-    	}
+            JavaScript::put([
+                'isLoggedIn' => $isLoggedIn
+            ]);
+        }
 
-    	return view('/index');
+        return view('/index');
     }
 
         public function store(Request $request)
@@ -51,8 +51,6 @@ class IndexController extends Controller
 
         public function register(Request $request){
 
-            $hasApp = request('isDownloaded');
-
             $validator = \Validator::make($request->all(), [
     
             'email' => ['bail','required','unique:users','max:255'],
@@ -69,35 +67,21 @@ class IndexController extends Controller
             return response()->json(['errors'=>$validator->errors()->all()]);
         }
 
-        else{
+        if(DB::table('plant_tracing')->where('researcher','=',request(['email']))->exists()){
 
-            if(DB::table('plant_tracing')->where('researcher','=',request(['email']))->exists()){
+                echo 'Exists';
 
-            /*
-            if($hasApp == 'noApp'){
-                console.log("No App!");
-                DB::table('users')->insert(['downloaded_app'=>'false']);
-            }
+                $passwordconf = Hash::make($request->get('password_confirmation'));
 
-            else{
-                DB::table('users')->insert(['downloaded_app'=>'true']);
-            }
-            */
+                $newUser = new User();
+                $newUser->email=$request->get('email');
+                $newUser->password=$request->get('password');
+                $newUser->password_confirmation=$passwordconf;
+                $newUser->save();
 
-            $passwordconf = Hash::make($request->get('password_confirmation'));
-
-            $newUser = new User();
-            $newUser->email=$request->get('email');
-            $newUser->password=$request->get('password');
-            $newUser->password_confirmation=$passwordconf;
-            $newUser->save();
-
-            auth()->login($newUser);
+                auth()->login($newUser);
 
             return response()->json(['success'=>'Data is successfully added']);
-            }
-
-
         }
 
     }

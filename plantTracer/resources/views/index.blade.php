@@ -61,8 +61,10 @@
             <label for="Password"><strong>Confirm Password:</strong></label>
             <input type="password" class="form-control" name="password_confirmation" id="passwordconf">
 
-            <input type="radio" name="isDownloaded" value="yesApp"> I have downloaded the app<br>
-            <input type="radio" name="isDownloaded" value="noApp"> I have not downloaded the app<br>
+            <!--
+            <input type="radio" name="download" value="yesApp"> I have downloaded the Plant Tracer App<br>
+            <input type="radio" name="download" value="noApp"> I have not downloaded the Plant Tracer App
+          -->
         
         </div>
 
@@ -109,7 +111,7 @@
       -->
     <div id="downloadIcons">
       <img id="downloadApple" src="img/downloadApple.png">
-      <a id="matLab" href="https://drive.google.com/file/d/1dKAfnz5z_q8wvyb3jt6MtOusrDjdkgV3/view" target="_blank"><img id="matLabImg" src="img/matLab.png"></a>
+      <a id="matLab" href="https://drive.google.com/drive/folders/1Q6pUmlyx7Qe4bNUI3mlTL8RngnoKUSus" target="_blank"><img id="matLabImg" src="img/matLab.png"></a>
     </div>
     </div>
     <img id="nsf" src="img/nsf.png">
@@ -204,7 +206,7 @@
                       console.warn(result);
                       jQuery('.alert-danger').hide();
                       $('#open').hide();
-                      window.location.href="/database";
+                      window.location.href="{{ url('/database') }}";
                     }
                   }
                   

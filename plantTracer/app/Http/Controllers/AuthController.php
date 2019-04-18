@@ -89,20 +89,30 @@ class AuthController extends Controller
             return response()->json(['errors'=>$validator->errors()->all()]);
         }
 
-        if(DB::table('plant_tracing')->where('researcher','=',request(['email']))->exists()){
+        //if(DB::table('plant_tracing')->where('researcher','=',request(['email']))->exists()){
 
-                $passwordconf = Hash::make($request->get('password_confirmation'));
+            $passwordconf = Hash::make($request->get('password_confirmation'));
+            $isDownloaded = request('download');
 
-                $newUser = new User();
-                $newUser->email=$request->get('email');
-                $newUser->password=$request->get('password');
-                $newUser->password_confirmation=$passwordconf;
-                $newUser->save();
+            $newUser = new User();
+            $newUser->email=$request->get('email');
+            $newUser->password=$request->get('password');
+            $newUser->password_confirmation=$passwordconf;
 
-                auth()->login($newUser);
+            if($isDownloaded == 'yesApp'){
+
+                $newUser->downloaded_app="True";
+            }
+            else{
+                $newUser->downloaded_app="False";
+            }
+                
+            $newUser->save();
+
+            auth()->login($newUser);
 
             return response()->json(['success'=>'Data is successfully added']);
-        }
+        //}
 
     }
 

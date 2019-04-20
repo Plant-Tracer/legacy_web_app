@@ -17,24 +17,28 @@ class DatabaseController extends Controller
     		$userEmail = Auth::user()->email;
 
             $users = DB::table('plant_tracing')->where('researcher', '=',$userEmail)->get();
+
+            $count = count($users);
     	
     		$prefilledUserData = DB::table('plant_tracing')->where('researcher', '=',$userEmail)->first();
 
             $isLoggedIn = true;
 
-    		$xAxis = explode(',',$prefilledUserData->graphTime);
-    		$graphOnePoints = explode(',',$prefilledUserData->graphX);
-    		$graphTwoPoints = explode(',',$prefilledUserData->graphY);
-            $researcher = $prefilledUserData->researcher;
-            $movement = $prefilledUserData->movement;
-            $genotype = $prefilledUserData->gene;
-            $geneID = $prefilledUserData->geneID;
-            $date = $prefilledUserData->dateLogged;
+            if($count > 0){
 
-    		    JavaScript::put([
-    				'xAxis' => $xAxis,
-    				'graphOnePoints' => $graphOnePoints,
-    				'graphTwoPoints' => $graphTwoPoints,
+                $xAxis = explode(',',$prefilledUserData->graphTime);
+                $graphOnePoints = explode(',',$prefilledUserData->graphX);
+                $graphTwoPoints = explode(',',$prefilledUserData->graphY);
+                $researcher = $prefilledUserData->researcher;
+                $movement = $prefilledUserData->movement;
+                $genotype = $prefilledUserData->gene;
+                $geneID = $prefilledUserData->geneID;
+                $date = $prefilledUserData->dateLogged;
+
+                JavaScript::put([
+                    'xAxis' => $xAxis,
+                    'graphOnePoints' => $graphOnePoints,
+                    'graphTwoPoints' => $graphTwoPoints,
                     'researcher' => $researcher,
                     'movement' => $movement,
                     'genotype' => $genotype,
@@ -43,9 +47,10 @@ class DatabaseController extends Controller
                     'users' => $users,
                     'isLoggedIn' => $isLoggedIn
 
-    			]);
+                ]);
+            }
 
-            return view('database', compact('users'));
+            return view('database', compact('users','count'));
     		}
 
             else{

@@ -60,12 +60,10 @@
        
             <label for="Password"><strong>Confirm Password:</strong></label>
             <input type="password" class="form-control" name="password_confirmation" id="passwordconf">
-
-            <!--
+            
             <input type="radio" name="download" value="yesApp"> I have downloaded the Plant Tracer App<br>
             <input type="radio" name="download" value="noApp"> I have not downloaded the Plant Tracer App
-          -->
-        
+          
         </div>
 
             <div class="iPhone">

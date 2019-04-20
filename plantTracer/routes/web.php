@@ -11,6 +11,10 @@
 |
 */
 
+/*
+Route::get('/{extension}', 'AuthController@index')->where('extension', '(?:index)?');
+*/
+
 Route::resource('/index','AuthController')->except(['create']);
 Route::resource('/','IndexController');
 

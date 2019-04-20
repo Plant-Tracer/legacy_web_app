@@ -97,6 +97,8 @@
             <div class="headerText">My Data</div>
         </div>
         <div class="content">
+
+            @if($count > 0)
             <a ng-repeat="user in users | filter:{arabiposisAccession:accession, researcher:researcher} | filter:checkAmp() | filter:checkRate() | filter:checkAngle() | filter:filterMovement()" href="#" id="dataBtn" ng-click="changeData(user.movement,user.gene,user.geneID,user.dateLogged); changeGraphData(user.graphTime,user.graphX,user.graphY)">
 
                 <span id="researcherName">@{{user.researcher}}</span><br>
@@ -114,6 +116,10 @@
                 <span id="graphTwoY" style="display: none;">@{{user.graphY}}</span>
 
             </a>
+
+            @else
+            <a style="text-align:center">There is no data to display!</a>
+            @endif
         </div>
     </div>
 

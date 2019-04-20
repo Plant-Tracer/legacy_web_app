@@ -20,6 +20,7 @@ class AuthController extends Controller
      */
     public function index()
     {
+
         if(Auth::check()){
             $isLoggedIn = true;
 
@@ -27,6 +28,13 @@ class AuthController extends Controller
                 'isLoggedIn' => $isLoggedIn
             ]);
         }
+
+        /*
+        if ($request->is('index')) {
+          return view('/index');
+        }
+        */
+
         return view('/index');
     }
 

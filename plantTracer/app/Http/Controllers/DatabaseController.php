@@ -50,6 +50,12 @@ class DatabaseController extends Controller
                 ]);
             }
 
+            else{
+                JavaScript::put([
+                    'researcher' => $userEmail
+                ]);
+            }
+
             return view('database', compact('users','count'));
     		}
 

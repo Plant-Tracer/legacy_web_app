@@ -152,22 +152,42 @@
     }
 
 /* SIDEBAR STYLING */
+
     .header{
+        width: inherit;
         height: 30px;
         font-family: "futura";
         border-color: rgb(161,210,68);
         text-align: center;
         position: relative;
         bottom: 0px;
+        border-bottom-style: solid;
+        border-bottom-color: rgb(161,210,68);
+        border-bottom-width: thin;
+    }
+
+    .header tr{
+        width: 100%;
+    }
+
+    #myData{
+        border-right-style: solid;
+        border-right-color: rgb(161,210,68);
+        border-right-width: thin;
+        width: 50%;
+    }
+
+    .headerText button{
+        border: none;
+        padding: 0;
+        background: none;
+        font-family: "futura";
+        color: rgb(161,210,68);
     }
     
     .headerText {
         padding-top: 2%;
-        color: rgb(161,210,68);
         font-weight: bold;
-        border-bottom-style: solid;
-        border-bottom-color: rgb(161,210,68);
-        border-bottom-width: thin;
     }
     
     .vertical-menu{
@@ -181,7 +201,7 @@
         margin-top: 2%;
     }
     
-    .content {
+    .myDataContent {
         position: absolute;
         width: 250px;
         height: 300px;
@@ -200,11 +220,11 @@
         border-bottom-color: rgb(161,210,68);
     }
     
-    .content a:hover{
+    .myDataContent a:hover{
         background-color: #bfe3ab;
     }
     
-    .content a.active{
+    .myDataContent a.active{
         background-color: #bfe3ab;
         color: white;
     }

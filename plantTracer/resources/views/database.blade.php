@@ -93,10 +93,16 @@
     <div id="bottomHalf">
 
     <div class="vertical-menu">
-        <div class="header">
-            <div class="headerText">My Data</div>
-        </div>
-        <div class="content">
+            <table class="header">
+                <form method="POST" action="{{ url('/messages') }}">
+                @csrf
+                <tr class="headerText">
+                    <th id="myData"><button name="filter" type="submit" value="myData" class="filterBtn">My Data</button></th>
+                    <th id="otherData"><button name="filter" type="submit" value="otherData" class="filterBtn">Other Data</button></th>
+                </tr>
+                </form>
+            </table>
+        <div class="myDataContent">
 
             @if($count > 0)
             <a ng-repeat="user in users | filter:{arabiposisAccession:accession, researcher:researcher} | filter:checkAmp() | filter:checkRate() | filter:checkAngle() | filter:filterMovement()" href="#" id="dataBtn" ng-click="changeData(user.movement,user.gene,user.geneID,user.dateLogged); changeGraphData(user.graphTime,user.graphX,user.graphY)">
@@ -121,6 +127,7 @@
             <a style="text-align:center">There is no data to display!</a>
             @endif
         </div>
+
     </div>
 
     <div class="ct-chart" id="chart1"></div>

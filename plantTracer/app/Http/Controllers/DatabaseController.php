@@ -10,21 +10,31 @@ use JavaScript;
 class DatabaseController extends Controller
 {
 
-
-
-    public function index(){
+    public function index(Request $request){
 
     	if(Auth::check()){
 
+            $users;
+            $prefilledUserData;
+            $count;
+
+            $filter = request('filter');
+
     		$userEmail = Auth::user()->email;
 
-            $users = DB::table('plant_tracing')->where('researcher', '=',$userEmail)->get();
-
-            $count = count($users);
-    	
-    		$prefilledUserData = DB::table('plant_tracing')->where('researcher', '=',$userEmail)->first();
-
             $isLoggedIn = true;
+
+            if($filter == 'otherData'){
+                $users = DB::table('plant_tracing')->where('researcher', '!=',$userEmail)->get();
+                $prefilledUserData = DB::table('plant_tracing')->where('researcher', '!=',$userEmail)->first();
+                $count = count($users);
+            }
+
+            else{
+                $users = DB::table('plant_tracing')->where('researcher', '=',$userEmail)->get();
+                $prefilledUserData = DB::table('plant_tracing')->where('researcher', '=',$userEmail)->first();
+                $count = count($users);
+            }
 
             if($count > 0){
 
@@ -66,51 +76,6 @@ class DatabaseController extends Controller
             }
 
     		}
-
-    public function update(Request $request){
-
-        $filter = request('filter');
-
-        $userEmail = Auth::user()->email;
-
-        if($filter == 'otherData'){
-
-            $users = DB::table('plant_tracing')->where('researcher', '!=',$userEmail)->get();
-
-            $prefilledUserData = DB::table('plant_tracing')->where('researcher', '=',$userEmail)->first();
-
-            $isLoggedIn = true;
-
-            $xAxis = explode(',',$prefilledUserData->graphTime);
-            $graphOnePoints = explode(',',$prefilledUserData->graphX);
-            $graphTwoPoints = explode(',',$prefilledUserData->graphY);
-            $researcher = $prefilledUserData->researcher;
-            $movement = $prefilledUserData->movement;
-            $genotype = $prefilledUserData->gene;
-            $geneID = $prefilledUserData->geneID;
-            $date = $prefilledUserData->dateLogged;
-
-            JavaScript::put([
-                'xAxis' => $xAxis,
-                'graphOnePoints' => $graphOnePoints,
-                'graphTwoPoints' => $graphTwoPoints,
-                'researcher' => $researcher,
-                'movement' => $movement,
-                'genotype' => $genotype,
-                'geneID' => $geneID,
-                'date' => $date,
-                'users' => $users,
-                'isLoggedIn' => $isLoggedIn
-
-                ]);
-        }
-
-        else{
-        }
-
-        return $this->index();
-
-    }
 
 }
 

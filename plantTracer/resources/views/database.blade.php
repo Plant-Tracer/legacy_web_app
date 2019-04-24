@@ -94,7 +94,7 @@
 
     <div class="vertical-menu">
             <table class="header">
-                <form method="POST" action="{{ url('/messages') }}">
+                <form method="POST" action="{{ url('/database') }}">
                 @csrf
                 <tr class="headerText">
                     <th id="myData"><button name="filter" type="submit" value="myData" class="filterBtn">My Data</button></th>
@@ -102,7 +102,7 @@
                 </tr>
                 </form>
             </table>
-        <div class="myDataContent">
+        <div class="content">
 
             @if($count > 0)
             <a ng-repeat="user in users | filter:{arabiposisAccession:accession, researcher:researcher} | filter:checkAmp() | filter:checkRate() | filter:checkAngle() | filter:filterMovement()" href="#" id="dataBtn" ng-click="changeData(user.movement,user.gene,user.geneID,user.dateLogged); changeGraphData(user.graphTime,user.graphX,user.graphY)">

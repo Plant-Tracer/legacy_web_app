@@ -30,6 +30,8 @@
         margin: 6px;
         border-radius: 8px;
         border-color: #2da633;
+        border-width: thin;
+        border-style: solid;
     }
     
     .filterBtn{
@@ -201,7 +203,7 @@
         margin-top: 2%;
     }
     
-    .myDataContent {
+    .content {
         position: absolute;
         width: 250px;
         height: 300px;
@@ -220,11 +222,11 @@
         border-bottom-color: rgb(161,210,68);
     }
     
-    .myDataContent a:hover{
+    .content a:hover{
         background-color: #bfe3ab;
     }
     
-    .myDataContent a.active{
+    .content a.active{
         background-color: #bfe3ab;
         color: white;
     }

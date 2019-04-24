@@ -18,10 +18,8 @@ Route::get('/{extension}', 'AuthController@index')->where('extension', '(?:index
 Route::resource('/index','AuthController')->except(['create']);
 Route::resource('/','IndexController');
 
-//Route::get('/database', 'DatabaseController@index');
-
 Route::get('/database', 'DatabaseController@index');
-Route::post('/database', 'DatabaseController@update');
+Route::post('/database', 'DatabaseController@index');
 
 //Return using plant tracer view
 Route::get('/usingplanttracer{extension}', 'UsingPTController@index')->where('extension', '(?:.html)?');

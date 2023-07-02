@@ -1,2 +1,2 @@
-# Plant Tracer Web App
+# (legacy) Plant Tracer Web App
 
